@@ -1,0 +1,53 @@
+<div id="create-interview" ng-controller="InterviewCreateController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/interviews">Entrevistas</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Crear entrevista
+            </li>
+        </ul>
+        <h1>Crear Entrevista</h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <form name="createInterview">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Capacidad
+                            <input id="capacity" name="capacity" type="number" ng-model="vm.interview.capacity" required>
+                            <p class="error" ng-if="createInterview.capacity.$invalid && createInterview.capacity.$dirty">
+                                Por favor indique la capacidad de la entrevista.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Duración
+                            <input id="duration" name="duration" type="number" ng-model="vm.interview.duration" placeholder="Duración expresada en minutos" required>
+                            <p class="error" ng-if="createInterview.duration.$invalid && createInterview.duration.$dirty">
+                                Por favor indique la duración de la entrevista en minutos.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Fecha y Hora
+                            <input id="startDateTime" name="startDateTime" type="text" ng-model="vm.interview.startDateTime" required>
+                            <p class="error" ng-if="createInterview.startDateTime.$invalid && createInterview.startDateTime.$dirty">
+                                Por favor indique la capacidad de la entrevista.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="button" ng-disabled="createInterview.$invalid" ng-click="vm.create()">
+                    Crear
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

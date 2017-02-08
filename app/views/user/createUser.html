@@ -1,0 +1,64 @@
+<div id="create-user" ng-controller="UserCreateController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/users">Usuarios</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Crear usuario
+            </li>
+        </ul>
+        <h1>Crear Usuario</h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <form name="createUser">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Nombre
+                            <input id="name" name="name" type="text" ng-model="vm.user.name" required>
+                            <p class="error" ng-if="createUser.name.$invalid && createUser.name.$dirty">
+                                Por favor escriba su nombre
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Apellido
+                            <input id="lastName" name="lastName" type="text" ng-model="vm.user.lastName" required>
+                            <p class="error" ng-if="createUser.lastName.$invalid && createUser.lastName.$dirty">
+                                Por favor escriba su apellido.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Correo Electrónico
+                            <input id="email" name="email" type="email" ng-model="vm.user.email" required>
+                            <p class="error" ng-if="createUser.email.$invalid && createUser.email.$dirty">
+                                Por favor escriba el correo electrónico del nuevo usuario.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Contraseña
+                            <input id="password" name="password" type="password" ng-model="vm.user.password" required>
+                            <p class="error" ng-if="createUser.password.$invalid && createUser.password.$dirty">
+                                Por favor escriba una contraseña.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="button" ng-disabled="createUser.$invalid" ng-click="vm.create()">
+                    Crear
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div id="interviews" ng-controller="InterviewsController as vm">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Entrevistas
+                </li>
+            </ul>
+            <hr>
+            <h1>Entrevistas</h1>
+            <a class="button" href="#!/interviews/create">
+                Crear Entrevista
+            </a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Fecha y Hora</th>
+                        <th>Capacidad</th>
+                        <th>Duración</th>
+                        <th>Asistentes</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="interview in vm.interviews">
+                        <td><a href="" ng-click="vm.selectInterview(interview)">{{interview.id}}</a></td>
+                        <td>{{interview.momentDate}}</td>
+                        <td>{{interview.capacity}}</td>
+                        <td>{{interview.duration}}</td>
+                        <td>{{interview.interviewed.length}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

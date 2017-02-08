@@ -1,0 +1,202 @@
+<div id="link-up-teacher">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li>
+                <span class="show-for-sr">Current: </span> Vinculación
+            </li>
+        </ul>
+        <h1>Vinculación <small>teacher id</small></h1>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <button class="button float-right">
+                Siguiente <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="callout">
+            <div class="row">
+                <div class="large-3 columns">
+                    <p><i class="fa fa-times-circle" aria-hidden="true"></i> Datos validos</p>
+                    <p><i class="fa fa-check-circle" aria-hidden="true"></i> Reglas de juego aceptadas</p>
+                </div>
+                <div class="large-3 columns">
+                    <p><i class="fa fa-check-circle" aria-hidden="true"></i> Exámen aprobado</p>
+                    <p><i class="fa fa-times-circle" aria-hidden="true"></i> Formulario de cultura valido</p>
+                </div>
+                <div class="large-3 columns">
+                    <p><i class="fa fa-times-circle" aria-hidden="true"></i> Materias escogidas</p>
+                    <p><i class="fa fa-check-circle" aria-hidden="true"></i> Horario valido</p>
+                </div>
+                <div class="large-3 columns">
+                    <button class="button expanded success">
+                        Vincular Profesor
+                    </button>
+                    <button class="button expanded alert">
+                        Rechazar Profesor
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-2 columns">
+            <div class="card">
+                <div class="card-divider">
+                    <h4>Teacher name</h4>
+                </div>
+                <div class="card-section">
+                    <img src="assets/img/generic/rectangle-1.jpg" imageonload>
+                </div>
+                <div class="card-section">
+                    <a href="" class="button expanded"><i class="fa fa-download" aria-hidden="true"></i> Hoja de Vida</a>
+                    <a href="" class="button expanded"><i class="fa fa-check-square" aria-hidden="true"></i> Validar Datos</a>
+                    <a href="" class="button expanded"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Entrevista</a>
+                    <a href="" class="button expanded"><i class="fa fa-check-square" aria-hidden="true"></i> Cultura Tu Profe</a>
+                    <a href="" class="button expanded"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Inducción</a>
+                </div>
+            </div>
+        </div>
+        <div class="large-5 columns">
+            <div class="card">
+                <div class="card-divider">
+                    <h4>
+                        Datos de Cuenta
+                    </h4>
+                </div>
+                <div class="card-section">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <strong>Nombre: </strong>
+                            <p>Nombre</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Apellido: </strong>
+                            <p>{{vm.teacher.lastName}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Correo electrónico: </strong>
+                            <p>{{vm.teacher.email}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-divider">
+                    <h4>
+                        Datos Personales
+                    </h4>
+                </div>
+                <div class="card-section">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <strong>Cédula: </strong>
+                            <p>{{vm.teacher.identification}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Celular: </strong>
+                            <p>{{vm.teacher.cellPhone}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Teléfono Fijo: </strong>
+                            <p>{{vm.teacher.phone}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Ciudad: </strong>
+                            <p>{{vm.teacher.city}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Barrio: </strong>
+                            <p>{{vm.teacher.neighborhood}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Dirección: </strong>
+                            <p>{{vm.teacher.address}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-divider">
+                    <h4>
+                        Datos Académicos
+                    </h4>
+                </div>
+                <div class="card-section">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <strong>Universidad: </strong>
+                            <p>{{vm.teacher.university}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Dirección Universidad: </strong>
+                            <p>{{vm.teacher.universityAddress}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Profesión: </strong>
+                            <p>{{vm.teacher.profession}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Semestre: </strong>
+                            <p>{{vm.teacher.semester}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Fecha de Grado: </strong>
+                            <p>{{vm.teacher.gradeDate}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="large-5 columns">
+            <div class="card">
+                <div class="card-divider">
+                    <h4>
+                        Materias
+                    </h4>
+                </div>
+                <div class="card-section">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <span class="label secondary">Materia 1</span>
+                            <span class="label secondary">Materia 1</span>
+                            <span class="label secondary">Materia 1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-divider">
+                    <h4>
+                        Datos Financieros
+                    </h4>
+                </div>
+                <div class="card-section">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <strong>Banco: </strong>
+                            <p>{{vm.teacher.bank}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Número de Cuenta: </strong>
+                            <p>{{vm.teacher.accountNumber}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Tipo de Cuenta: </strong>
+                            <p>{{vm.teacher.accountType}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Nombre titular de la cuenta: </strong>
+                            <p>{{vm.teacher.accountHolderName}}</p>
+                        </div>
+                        <div class="large-12 columns">
+                            <strong>Cedula titular de la cuenta: </strong>
+                            <p>{{vm.teacher.accountHolderIdentification}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

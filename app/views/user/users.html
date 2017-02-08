@@ -1,0 +1,36 @@
+<div id="users" ng-controller="UsersController as vm">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Usuarios
+                </li>
+            </ul>
+            <hr>
+            <h1>Usuarios</h1>
+            <a class="button" href="#!/users/create">
+                Crear Usuario
+            </a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo Electrónico</th>                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in vm.users">
+                        <td><a href="" ng-click="vm.selectUser(user)">{{user.id}}</a></td>                        
+                        <td>{{user.name}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

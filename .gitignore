@@ -1,0 +1,14 @@
+node_modules
+dist
+bower_components
+test/bower_components
+yarn.lock
+
+app/fonts
+
+.tmp
+.idea
+.DS_Store
+.sonar/    
+.vscode/
+
