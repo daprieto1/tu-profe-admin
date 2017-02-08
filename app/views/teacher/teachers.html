@@ -1,0 +1,34 @@
+<div id="teachers">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Profesores
+                </li>
+            </ul>
+            <hr>
+            <h1>Profesores</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Celular</th>
+                        <th>Estado</th>                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="teacher in vm.teachers">
+                        <td><a href="" ng-click="vm.selectTeacher(teacher)">{{teacher.id}}</a></td>
+                        <td>{{teacher.name}} + {{teacher.lastName}}</td>
+                        <td>{{teacher.email}}</td>
+                        <td>{{teacher.cellPhone}}</td>
+                        <td>{{teacher.state}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

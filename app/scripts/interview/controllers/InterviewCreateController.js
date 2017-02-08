@@ -18,6 +18,7 @@
             function initCtrl() {
                 vm.interview = {};
             }
+            
             initCtrl();
         });
 })();

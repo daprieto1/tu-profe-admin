@@ -1,0 +1,35 @@
+<div id="courses" ng-controller="CoursesController as vm">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Materias
+                </li>
+            </ul>
+            <hr>
+            <h1>Materias</h1>
+            <a class="button" href="#!/courses/create">
+                Crear Materia
+            </a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Área</th>
+                        <th>Clasificación</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="course in vm.courses">
+                        <td><a href="" ng-click="vm.selectCourse(course)">{{course.id}}</a></td>
+                        <td>{{course.courseName}}</td>
+                        <td>{{course.area}}</td>
+                        <td>{{course.classification}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

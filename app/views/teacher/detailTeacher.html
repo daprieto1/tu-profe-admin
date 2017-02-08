@@ -1,18 +1,12 @@
-<div id="link-up-teacher" ng-controller="LinkUpController as vm">
+<div id="detail-teacher">
     <div class="row">
         <ul class="breadcrumbs">
+            <li><a href="#!/teachers">Profesores</a></li>
             <li>
-                <span class="show-for-sr">Current: </span> Vinculación
+                <span class="show-for-sr">Current: </span> Detalle profesor
             </li>
         </ul>
-        <h1>Vinculación <small>teacher id</small></h1>
-    </div>
-    <div class="row">
-        <div class="large-12 columns">
-            <button class="button float-right">
-                Siguiente <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </button>
-        </div>
+        <h1>Detalle Profesor <small>id</small></h1>
     </div>
     <div class="row">
         <div class="callout">
@@ -30,12 +24,6 @@
                     <p><i class="fa fa-check-circle" aria-hidden="true"></i> Horario valido</p>
                 </div>
                 <div class="large-3 columns">
-                    <button class="button expanded success">
-                        Vincular Profesor
-                    </button>
-                    <button class="button expanded alert">
-                        Rechazar Profesor
-                    </button>
                 </div>
             </div>
         </div>
@@ -50,11 +38,9 @@
                     <img src="assets/img/generic/rectangle-1.jpg" imageonload>
                 </div>
                 <div class="card-section">
-                    <a href="" class="button expanded"><i class="fa fa-download" aria-hidden="true"></i> Hoja de Vida</a>
-                    <a href="" class="button expanded"><i class="fa fa-check-square" aria-hidden="true"></i> Validar Datos</a>
-                    <a href="" class="button expanded" ng-click="vm.openSelectInterviewModal()"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Entrevista</a>
-                    <a href="" class="button expanded"><i class="fa fa-check-square" aria-hidden="true"></i> Cultura Tu Profe</a>
-                    <a href="" class="button expanded"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Inducción</a>
+                    <a href="" class="button expanded"><i class="fa fa-book" aria-hidden="true"></i> Editar Materias</a>
+                    <a href="" class="button expanded"><i class="fa fa-calendar" aria-hidden="true"></i> Editar Horario</a>
+                    <a href="" class="button expanded alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Bloquear</a>
                 </div>
             </div>
         </div>
@@ -69,7 +55,7 @@
                     <div class="row">
                         <div class="large-12 columns">
                             <strong>Nombre: </strong>
-                            <p>{{vm.teacher.name}}</p>
+                            <p>Nombre</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Apellido: </strong>
@@ -143,14 +129,14 @@
                         </div>
                         <div class="large-12 columns">
                             <strong>Fecha de Grado: </strong>
-                            <p>{{vm.teacher.gradeDateMoment}}</p>
+                            <p>{{vm.teacher.gradeDate}}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="large-5 columns">
-            <div id="courses" class="card">
+            <div class="card">
                 <div class="card-divider">
                     <h4>
                         Materias
@@ -159,7 +145,9 @@
                 <div class="card-section">
                     <div class="row">
                         <div class="large-12 columns">
-                            <span ng-repeat="course in vm.teacher.courses" class="label secondary">{{course.courseName}}</span>
+                            <span class="label secondary">Materia 1</span>
+                            <span class="label secondary">Materia 1</span>
+                            <span class="label secondary">Materia 1</span>
                         </div>
                     </div>
                 </div>
@@ -191,27 +179,6 @@
                         <div class="large-12 columns">
                             <strong>Cedula titular de la cuenta: </strong>
                             <p>{{vm.teacher.accountHolderIdentification}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-divider">
-                    <h4>
-                        Descripción de Perfil
-                    </h4>
-                </div>
-                <div class="card-section">
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                                nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-                                fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-                                venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
-                                dapibu
-                            </p>
                         </div>
                     </div>
                 </div>

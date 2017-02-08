@@ -1,0 +1,57 @@
+<div id="create-course" ng-controller="CourseCreateController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/courses">Materias</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Crear materia
+            </li>
+        </ul>
+        <h1>Crear Materia</h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <form name="createCourse">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Nombre
+                            <input id="courseName" name="courseName" type="text" ng-model="vm.course.courseName" required>
+                            <p class="error" ng-if="createCourse.courseName.$invalid && createCourse.courseName.$dirty">
+                                Por favor indique el nombre de la materia.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Área
+                            <select name="area" id="area"
+                                ng-options="area.label for area in vm.courseAreas track by area.id"
+                                ng-model="vm.course.area" required></select>
+                            <p class="error" ng-if="createCourse.area.$invalid && createCourse.area.$dirty">
+                                Por favor seleccione un área.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Clasificación
+                            <select name="classification" id="classification"
+                                ng-options="classification.label for classification in vm.courseClassifications track by classification.id"
+                                ng-model="vm.course.classification" required></select>
+                            <p class="error" ng-if="createCourse.classification.$invalid && createCourse.classification.$dirty">
+                                Por favor selecione una clasificación.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="button" ng-disabled="createCourse.$invalid" ng-click="vm.create()">
+                    Crear
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

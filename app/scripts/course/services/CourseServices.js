@@ -1,8 +1,8 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('courseModule')
-        .factory('CourseServices', function($resource, TU_PROFE_API) {
+        .factory('CourseServices', function ($resource, TU_PROFE_API) {
 
             var Course = $resource(TU_PROFE_API + '/course/:id', { id: '@id' }, {
                 update: {
@@ -14,8 +14,10 @@
 
             return {
 
-                getAll: function() {
+                getAll: function () {
                     return Course.query().$promise;
+                }, create: function (course) {
+                    return Course.save(course).$promise;
                 }
 
             }
