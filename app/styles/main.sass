@@ -47,6 +47,15 @@ form
     color: #cc4b37
     font-size: smaller
 
+button
+  .spinner 
+    display: none
+
+button 
+  &.is-loading
+    .spinner
+      display: inline-block !important
+
 @import "partials/global_variables"
 
 @import "partials/loaders"

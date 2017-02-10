@@ -12,6 +12,7 @@
         'mm.foundation',
         'multipleSelect',
         'LocalStorageModule',
+        'angularPromiseButtons',
         'sessionModule',
         'dashboardModule',
         'courseModule',
@@ -21,7 +22,7 @@
         'userModule'
     ])
 
-        .config(function ($routeProvider, $locationProvider, $cookiesProvider, localStorageServiceProvider) {
+        .config(function ($routeProvider, $locationProvider, $cookiesProvider, localStorageServiceProvider, angularPromiseButtonsProvider) {
 
 
             $cookiesProvider.defaults.path = '/';
@@ -38,14 +39,32 @@
                 })
                 .when('/login', {
                     templateUrl: 'views/session/login.html'
-                })                
+                })
                 .otherwise({
                     templateUrl: '/'
                 });
 
+            angularPromiseButtonsProvider.extendConfig({
+                spinnerTpl: '<span class="fa fa-spinner spinner fa-spin" aria-hidden="true"></span>',
+                disableBtn: true,
+                btnLoadingClass: 'is-loading',
+                addClassToCurrentBtnOnly: false,
+                disableCurrentBtnOnly: false,
+                minDuration: false,
+                CLICK_EVENT: 'click',
+                CLICK_ATTR: 'ngClick',
+                SUBMIT_EVENT: 'submit',
+                SUBMIT_ATTR: 'ngSubmit',
+                BTN_SELECTOR: 'button'
+            });
+
         })
 
         .run(function ($rootScope) {
+
+            $rootScope.cloudFront = {
+                domainName: 'http://d1ql3lvdg7tehd.cloudfront.net'
+            };
 
             $rootScope.$apply(function () {
                 angular.element(document).foundation();

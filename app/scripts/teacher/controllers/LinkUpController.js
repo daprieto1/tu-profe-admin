@@ -2,8 +2,24 @@
     'use strict';
 
     angular.module('teacherModule')
-        .controller('LinkUpController', function ($modal, InterviewServices, CourseServices, TEACHER_STATES) {
+        .controller('LinkUpController', function ($modal, InterviewServices, CourseServices, ServiceTeachers, TEACHER_STATES) {
             var vm = this;
+
+            vm.editProfileDescription = function () {
+                var t = { id: '1' };
+                return ServiceTeachers.update(t)
+                    .then(function () {
+                        vm.editProfileData = false;
+                        alertify.success('La descripción de perfil ha sido actualizada');
+                    }, function (error) {
+                        alertify.error('La descripción de perfil no ha sido actualizada:' + error.data.message);
+                    });
+
+            };
+
+            vm.canLinkUpTeacher = function () {
+                return false;
+            };
 
             vm.openSelectInterviewModal = function () {
                 var params = {
@@ -24,7 +40,7 @@
                             });
 
                         $scope.takePlace = function (interviewId) {
-                            InterviewServices.takePlace($scope.teacherId, interviewId)
+                            $scope.promiseTakePlace = InterviewServices.takePlace($scope.teacherId, interviewId)
                                 .then(function () {
                                     alertify.success('La entrevista ha sido agendada con éxito.');
                                     $modalInstance.close();
@@ -44,7 +60,9 @@
             };
 
             function initCtrl() {
+                vm.editProfileData = false;
                 vm.teacher = {
+                    "profileDescription": 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu',
                     "acceptGameRules": 0,
                     "accountHolderIdentification": "b",
                     "accountHolderName": "b",

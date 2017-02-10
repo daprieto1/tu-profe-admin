@@ -5,7 +5,7 @@
                 <span class="show-for-sr">Current: </span> Vinculación
             </li>
         </ul>
-        <h1>Vinculación <small>teacher id</small></h1>
+        <h1>Vinculación <small>{{vm.teacher.id}}</small></h1>
     </div>
     <div class="row">
         <div class="large-12 columns">
@@ -19,18 +19,18 @@
             <div class="row">
                 <div class="large-3 columns">
                     <p><i class="fa fa-times-circle" aria-hidden="true"></i> Datos validos</p>
-                    <p><i class="fa fa-check-circle" aria-hidden="true"></i> Reglas de juego aceptadas</p>
+                    <p><i class="fa fa-{{vm.teacher.acceptGameRules ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Reglas de juego aceptadas</p>
                 </div>
                 <div class="large-3 columns">
-                    <p><i class="fa fa-check-circle" aria-hidden="true"></i> Exámen aprobado</p>
+                    <p><i class="fa fa-{{vm.teacher.exam.passExam ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Exámen aprobado</p>
                     <p><i class="fa fa-times-circle" aria-hidden="true"></i> Formulario de cultura valido</p>
                 </div>
                 <div class="large-3 columns">
-                    <p><i class="fa fa-times-circle" aria-hidden="true"></i> Materias escogidas</p>
+                    <p><i class="fa fa-{{vm.teacher.courses.length > 0 ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Materias escogidas</p>
                     <p><i class="fa fa-check-circle" aria-hidden="true"></i> Horario valido</p>
                 </div>
                 <div class="large-3 columns">
-                    <button class="button expanded success">
+                    <button class="button expanded success" ng-disabled="!vm.canLinkUpTeacher()">
                         Vincular Profesor
                     </button>
                     <button class="button expanded alert">
@@ -44,13 +44,13 @@
         <div class="large-2 columns">
             <div class="card">
                 <div class="card-divider">
-                    <h4>Teacher name</h4>
+                    <h4>{{vm.teacher.name}} {{vm.teacher.lastName}}</h4>
                 </div>
                 <div class="card-section">
                     <img src="assets/img/generic/rectangle-1.jpg" imageonload>
                 </div>
                 <div class="card-section">
-                    <a href="" class="button expanded"><i class="fa fa-download" aria-hidden="true"></i> Hoja de Vida</a>
+                    <a href="{{cloudFront.domainName + '/teacher/curriculum/' + vm.teacher.id + '.docx'}}" class="button expanded"><i class="fa fa-download" aria-hidden="true"></i> Hoja de Vida</a>
                     <a href="" class="button expanded"><i class="fa fa-check-square" aria-hidden="true"></i> Validar Datos</a>
                     <a href="" class="button expanded" ng-click="vm.openSelectInterviewModal()"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Entrevista</a>
                     <a href="" class="button expanded"><i class="fa fa-check-square" aria-hidden="true"></i> Cultura Tu Profe</a>
@@ -195,7 +195,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" id="profileDescription">
                 <div class="card-divider">
                     <h4>
                         Descripción de Perfil
@@ -204,14 +204,21 @@
                 <div class="card-section">
                     <div class="row">
                         <div class="large-12 columns">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                                nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-                                fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-                                venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
-                                dapibu
-                            </p>
+                            <div ng-if="!vm.editProfileData">
+                                <p>
+                                    {{vm.teacher.profileDescription}}
+                                </p>
+                                <button class="button hollow" ng-click="vm.editProfileData = true">
+                                    Editar
+                                </button>
+                            </div>
+                            <form name="editProfileDescription" ng-if="vm.editProfileData" ng-submit="vm.editProfileDescription()" promise-btn novalidate>
+                                <textarea name="profileDescription" id="profileDescription" rows="10" maxlength="500" ng-model="vm.teacher.profileDescription"
+                                    required></textarea>
+                                    <button class="button" type="submit" ng-disabled="editProfileDescription.$invalid">
+                                    Guardar
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
