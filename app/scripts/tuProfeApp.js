@@ -17,6 +17,7 @@
         'dashboardModule',
         'courseModule',
         'interviewModule',
+        'inductionModule',
         'trainingModule',
         'teacherModule',
         'userModule'
