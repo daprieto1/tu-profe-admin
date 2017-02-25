@@ -5,6 +5,15 @@
         .controller('LinkUpController', function ($modal, InterviewServices, CourseServices, ServiceTeachers, TEACHER_STATES) {
             var vm = this;
 
+            vm.changeValidData = function (validData) {
+                return ServiceTeachers.changeValidData(vm.teacher.id, validData)
+                    .then(function () {
+                        alertify.success('La validez de los datos del profesor se actualizado con éxito.');
+                    }, function (error) {
+                        alertify.error('La validez de los datos del profesor no se ha actualizado:' + error.data.message);
+                    });
+            };
+
             vm.editProfileDescription = function () {
                 var t = { id: '1' };
                 return ServiceTeachers.update(t)

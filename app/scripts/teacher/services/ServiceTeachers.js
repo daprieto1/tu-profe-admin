@@ -15,6 +15,11 @@
                     params: { id: '@id' },
                     method: 'POST'
                 },
+                changeValidData: {
+                    url: TU_PROFE_API + '/teacher/change-valid-data/:id',
+                    params: { id: '@id', validData: '' },
+                    method: 'POST'
+                },
                 acceptGameRules: {
                     url: TU_PROFE_API + '/teacher/accept-game-rules/:id',
                     params: { id: '@id' },
@@ -38,6 +43,10 @@
 
                 activateAccount: function (teacherId) {
                     return Teacher.activateAccount({ id: teacherId }).$promise;
+                },
+
+                changeValidData: function (teacherId, value) {
+                    return Teacher.changeValidData({ id: teacherId, validData: value }, ).$promise;
                 },
 
                 acceptGameRules: function (teacherId) {

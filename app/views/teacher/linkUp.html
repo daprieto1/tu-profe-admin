@@ -18,12 +18,13 @@
         <div class="callout">
             <div class="row">
                 <div class="large-3 columns">
-                    <p><i class="fa fa-times-circle" aria-hidden="true"></i> Datos validos</p>
+                    <p><i class="fa fa-{{vm.teacher.validData ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i> Datos
+                        validos</p>
                     <p><i class="fa fa-{{vm.teacher.acceptGameRules ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Reglas de juego aceptadas</p>
                 </div>
                 <div class="large-3 columns">
                     <p><i class="fa fa-{{vm.teacher.exam.passExam ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Exámen aprobado</p>
-                    <p><i class="fa fa-times-circle" aria-hidden="true"></i> Formulario de cultura valido</p>
+                    <p><i class="fa fa-{{vm.teacher.exam.cultureForm ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Formulario de cultura valido</p>
                 </div>
                 <div class="large-3 columns">
                     <p><i class="fa fa-{{vm.teacher.courses.length > 0 ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Materias escogidas</p>
@@ -51,7 +52,7 @@
                 </div>
                 <div class="card-section">
                     <a href="{{cloudFront.domainName + '/teacher/curriculum/' + vm.teacher.id + '.docx'}}" class="button expanded"><i class="fa fa-download" aria-hidden="true"></i> Hoja de Vida</a>
-                    <a href="" class="button expanded"><i class="fa fa-check-square" aria-hidden="true"></i> Validar Datos</a>
+                    <a href="" class="button expanded" ng-click="vm.changeValidData('true')"><i class="fa fa-check-square" aria-hidden="true"></i> Validar Datos</a>
                     <a href="" class="button expanded" ng-click="vm.openSelectInterviewModal()"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Entrevista</a>
                     <a href="" class="button expanded"><i class="fa fa-check-square" aria-hidden="true"></i> Cultura Tu Profe</a>
                     <a href="" class="button expanded"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Inducción</a>
