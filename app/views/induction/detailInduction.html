@@ -1,0 +1,51 @@
+<div id="detail-induction" ng-controller="InductionDetailController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/inductions">Capacitaciones</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Detalle capacitación
+            </li>
+        </ul>
+        <h1>Detalle Entrevista <small>{{vm.induction.id}}</small></h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <div class="callout">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <p>Fecha y Hora</p>
+                        <div class="stat">{{vm.induction.momentDate}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p>Capacidad</p>
+                        <div class="stat">{{vm.induction.capacity}} Personas</div>
+                    </div>
+                    <div class="large-6 columns">
+                        <p>Duración</p>
+                        <div class="stat">{{vm.induction.duration}} Minutos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="large-6 columns">
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="assistant in vm.induction.assistants track by $index">
+                        <td>{{assistant}}</td>
+                        <td>Diego</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

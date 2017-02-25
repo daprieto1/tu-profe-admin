@@ -1,0 +1,37 @@
+<div id="inductions" ng-controller="InductionsController as vm">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Capacitaciones
+                </li>
+            </ul>
+            <hr>
+            <h1>Capacitaciones</h1>
+            <a class="button" href="#!/inductions/create">
+                Crear Capacitación
+            </a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Fecha y Hora</th>
+                        <th>Capacidad</th>
+                        <th>Duración</th>
+                        <th>Asistentes</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="induction in vm.inductions">
+                        <td><a href="" ng-click="vm.selectInduction(induction)">{{induction.id}}</a></td>
+                        <td>{{induction.momentDate}}</td>
+                        <td>{{induction.capacity}}</td>
+                        <td>{{induction.duration}}</td>
+                        <td>{{induction.inductioned.length}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

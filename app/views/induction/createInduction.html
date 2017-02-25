@@ -1,0 +1,53 @@
+<div id="create-induction" ng-controller="InductionCreateController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/inductions">Capacitaciones</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Crear capacitación
+            </li>
+        </ul>
+        <h1>Crear Capacitación</h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <form name="createInduction">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Capacidad
+                            <input id="capacity" name="capacity" type="number" ng-model="vm.induction.capacity" required>
+                            <p class="error" ng-if="createInduction.capacity.$invalid && createInduction.capacity.$dirty">
+                                Por favor indique la capacidad de la capacitación.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Duración
+                            <input id="duration" name="duration" type="number" ng-model="vm.induction.duration" placeholder="Duración expresada en minutos" required>
+                            <p class="error" ng-if="createInduction.duration.$invalid && createInduction.duration.$dirty">
+                                Por favor indique la duración de la capacitación en minutos.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Fecha y Hora
+                            <input id="startDateTime" name="startDateTime" type="text" ng-model="vm.induction.startDateTime" required>
+                            <p class="error" ng-if="createInduction.startDateTime.$invalid && createInduction.startDateTime.$dirty">
+                                Por favor indique la capacidad de la capacitación.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="button" ng-disabled="createInduction.$invalid" ng-click="vm.create()">
+                    Crear
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

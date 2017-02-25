@@ -22,7 +22,8 @@
     "angularMultipleSelect": "angular-multiple-select#^1.1.2",
     "alertify.js": "^0.3.11",
     "angular-local-storage": "^0.5.2",
-    "angular-promise-buttons": "^0.1.19"
+    "angular-promise-buttons": "^0.1.19",
+    "foundation-datepicker": "^1.5.6"
   },
   "devDependencies": {
     "chai": "^3.5.0",
