@@ -20,7 +20,8 @@
         'inductionModule',
         'trainingModule',
         'teacherModule',
-        'userModule'
+        'userModule',
+        'schoolModule'
     ])
 
         .config(function ($routeProvider, $locationProvider, $cookiesProvider, localStorageServiceProvider, angularPromiseButtonsProvider) {

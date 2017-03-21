@@ -1,0 +1,35 @@
+<div id="schools" ng-controller="SchoolsController as vm">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Instituciones
+                </li>
+            </ul>
+            <hr>
+            <h1>Instituciones</h1>
+            <a class="button" href="#!/schools/create">
+                Crear Institución
+            </a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Tipo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="school in vm.schools">
+                        <td><a href="" ng-click="vm.selectSchool(school)">{{school.id}}</a></td>
+                        <td>{{school.name}}</td>
+                        <td>{{school.address}}</td>
+                        <td>{{school.type}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
