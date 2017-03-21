@@ -41,9 +41,6 @@
                             <select name="classification" id="classification"
                                 ng-options="classification.label for classification in vm.courseClassifications track by classification.id"
                                 ng-model="vm.course.classification" required></select>
-                            <p class="error" ng-if="createCourse.classification.$invalid && createCourse.classification.$dirty">
-                                Por favor selecione una clasificación.
-                            </p>
                         </label>
                     </div>
                 </div>

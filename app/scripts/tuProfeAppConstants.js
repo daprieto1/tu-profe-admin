@@ -67,5 +67,15 @@
                 id: 4,
                 label: 'Música'
             },
+        ])
+        
+        .constant('SCHOOL_TYPES', [
+            {
+                id: 1,
+                label: 'Universidad'
+            }, {
+                id: 2,
+                label: 'Colegio'
+            }
         ]);
 })();

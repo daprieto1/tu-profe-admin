@@ -1,0 +1,52 @@
+<div id="create-school" ng-controller="SchoolCreateController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/schools">Instituciones</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Crear institución
+            </li>
+        </ul>
+        <h1>Crear Institución</h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <form name="createSchool">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Nombre
+                            <input id="name" name="name" type="text" ng-model="vm.school.name" required>
+                            <p class="error" ng-if="createSchool.name.$invalid && createSchool.name.$dirty">
+                                Por favor indique el nombre de la institución.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Dirección
+                            <input id="address" name="address" type="text" ng-model="vm.school.address" required>
+                            <p class="error" ng-if="createSchool.address.$invalid && createSchool.address.$dirty">
+                                Por favor indique la dirección d la Institución.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Tipo
+                            <select name="type" id="type"
+                                ng-options="type.label for type in vm.schoolTypes track by type.id"
+                                ng-model="vm.school.type" required></select>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="button" ng-disabled="createSchool.$invalid" ng-click="vm.create()">
+                    Crear
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
