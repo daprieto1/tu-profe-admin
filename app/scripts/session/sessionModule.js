@@ -40,9 +40,9 @@
                             //var authToken = $cookies.get('token');
                             var authToken = 'token';
                             if (AuthAppConfig.useAuthTokenHeader) {
-                                config.headers['access_token'] = authToken;
+                                //config.headers['access_token'] = authToken;
                             } else {
-                                config.url = config.url + '?token=' + authToken;
+                                //config.url = config.url + '?token=' + authToken;
                             }
                         }
                         return config || $q.when(config);

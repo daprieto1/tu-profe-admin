@@ -14,17 +14,14 @@
             <table>
                 <thead>
                     <tr>
-                        <th>id</th>
                         <th>Nombre</th>
                         <th>Área</th>
-                        <th>Clasificación</th>
-                        <th></th>
+                        <th>Clasificación</th>                        
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="course in vm.courses">
-                        <td><a href="" ng-click="vm.selectCourse(course)">{{course.id}}</a></td>
-                        <td>{{course.courseName}}</td>
+                        <td><a href="" ng-click="vm.selectCourse(course)">{{course.courseName}}</a></td>                    
                         <td>{{course.area}}</td>
                         <td>{{course.classification}}</td>
                     </tr>

@@ -14,6 +14,7 @@
                 vm.courses = [];
                 CourseServices.getAll()
                     .then(function (response) {
+                        console.log('here',response);
                         vm.courses = response;
                     });
             }

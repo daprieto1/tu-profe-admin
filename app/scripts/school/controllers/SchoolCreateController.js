@@ -6,7 +6,9 @@
             var vm = this;
 
             vm.create = function () {
-                SchoolServices.create(vm.school)
+                var school = angular.copy(vm.school);
+                school.type = school.type.id;
+                SchoolServices.create(school)
                     .then(function (response) {
                         localStorageService.set('selectedSchool', response);
                         $location.path('/schools/detail');
