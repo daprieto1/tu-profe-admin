@@ -1,4 +1,4 @@
-<div id="teachers">
+<div id="teachers" ng-controller="TeachersController as vm">
     <div class="row">
         <div class="large-12 columns">
             <ul class="breadcrumbs">
@@ -10,19 +10,16 @@
             <h1>Profesores</h1>
             <table>
                 <thead>
-                    <tr>
-                        <th>id</th>
+                    <tr>                        
                         <th>Nombre</th>
                         <th>Correo</th>
                         <th>Celular</th>
-                        <th>Estado</th>                        
-                        <th></th>
+                        <th>Estado</th>                                                
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="teacher in vm.teachers">
-                        <td><a href="" ng-click="vm.selectTeacher(teacher)">{{teacher.id}}</a></td>
-                        <td>{{teacher.name}} + {{teacher.lastName}}</td>
+                        <td><a href="" ng-click="vm.selectTeacher(teacher)">{{teacher.name + ' ' + teacher.lastName}}</a></td>                        
                         <td>{{teacher.email}}</td>
                         <td>{{teacher.cellPhone}}</td>
                         <td>{{teacher.state}}</td>

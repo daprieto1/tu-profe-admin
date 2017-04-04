@@ -4,7 +4,7 @@
     angular.module('teacherModule')
         .factory('ServiceTeachers', function ($resource, $http, TU_PROFE_API) {
 
-            var Teacher = $resource(TU_PROFE_API + '/teacher/:id', { id: '@id' }, {
+            var Teacher = $resource(TU_PROFE_API + '/teachers/:id', { id: '@id' }, {
                 update: {
                     headers: { 'Content-Type': 'application/json' },
                     url: TU_PROFE_API + '/teacher',
@@ -33,6 +33,10 @@
             })
 
             return {
+                getAll: function () {
+                    return Teacher.query().$promise;
+                },
+
                 getTeacher: function (id) {
                     return Teacher.get({ id: id }).$promise;
                 },
