@@ -1,0 +1,46 @@
+<div id="detail-school" ng-controller="SchoolDetailController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/schools">Instituciones</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Detalle Institución
+            </li>
+        </ul>
+        <h1>Detalle Institución <small>{{vm.school.id}}</small></h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <div class="callout">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <p>Nombre:</p>
+                        <div class="stat">{{vm.school.name}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <p>Dirección:</p>
+                        <div class="stat">{{vm.school.address}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <p>Dirección Georeferenciada:</p>
+                        <div class="stat">{{vm.school.formattedAddress}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <p>Tipo:</p>
+                        <div class="stat">{{vm.school.type.label}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="large-6 columns">
+            <div id="map" style="width: 100%; height: 400px;">
+
+            </div>
+        </div>
+    </div>
+</div>

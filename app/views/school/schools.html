@@ -23,7 +23,7 @@
                     <tr ng-repeat="school in vm.schools">
                         <td><a href="" ng-click="vm.selectSchool(school)">{{school.name}}</a></td>                        
                         <td>{{school.address}}</td>
-                        <td>{{school.type}}</td>
+                        <td>{{school.type.label}}</td>
                     </tr>
                 </tbody>
             </table>

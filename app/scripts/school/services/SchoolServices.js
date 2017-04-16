@@ -6,7 +6,7 @@
             var School = $resource(TU_PROFE_API + '/schools/:id', { id: '@id' }, {
                 update: {
                     headers: { 'Content-Type': 'application/json' },
-                    url: TU_PROFE_API + '/school',
+                    url: TU_PROFE_API + '/schools',
                     method: 'PUT'
                 }
             })
