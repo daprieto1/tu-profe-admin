@@ -1,5 +1,9 @@
 {
     "private": true,
+    "scripts": {
+      "start": "node server.js",
+      "postinstall": "gulp && npm install bower && bower install && cp -R bower_components dist"
+    },
     "engines": {
         "node": ">=4"
     },
