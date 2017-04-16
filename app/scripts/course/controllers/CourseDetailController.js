@@ -6,7 +6,7 @@
             var vm = this;
 
             function initCtrl() {
-
+                vm.course = localStorageService.get('selectedCourse');
             }
 
             initCtrl();

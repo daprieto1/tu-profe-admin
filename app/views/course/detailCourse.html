@@ -1,51 +1,37 @@
-<div id="detail-interview" ng-controller="CourseDetailController as vm">
+<div id="detail-course" ng-controller="CourseDetailController as vm">
     <div class="row">
         <ul class="breadcrumbs">
-            <li><a href="#!/interviews">Cursos</a></li>
+            <li><a href="#!/courses">Cursos</a></li>
             <li>
                 <span class="show-for-sr">Current: </span> Detalle Cursos
             </li>
         </ul>
-        <h1>Detalle Curso <small>{{vm.interview.id}}</small></h1>
+        <h1>Detalle Curso <small>{{vm.course.id}}</small></h1>
     </div>
     <div class="row">
         <div class="large-6 columns">
             <div class="callout">
                 <div class="row">
                     <div class="large-12 columns">
-                        <p>Fecha y Hora</p>
-                        <div class="stat">{{vm.interview.momentDate}}</div>
+                        <p>Nombre</p>
+                        <div class="stat">{{vm.course.courseName}}</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="large-6 columns">
-                        <p>Capacidad</p>
-                        <div class="stat">{{vm.interview.capacity}} Personas</div>
+                        <p>Clasificación</p>
+                        <div class="stat">{{vm.course.classification}}</div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="large-6 columns">
-                        <p>Duración</p>
-                        <div class="stat">{{vm.interview.duration}} Minutos</div>
+                        <p>Área</p>
+                        <div class="stat">{{vm.course.area}}</div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="large-6 columns">
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Nombre</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="interviewed in vm.interview.interviewed track by $index">
-                        <td>{{interviewed}}</td>
-                        <td>Diego</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>
