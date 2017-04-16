@@ -1,4 +1,4 @@
-<div id="detail-teacher">
+<div id="detail-teacher" ng-controller="TeacherDetailController as vm">
     <div class="row">
         <ul class="breadcrumbs">
             <li><a href="#!/teachers">Profesores</a></li>
@@ -6,7 +6,7 @@
                 <span class="show-for-sr">Current: </span> Detalle profesor
             </li>
         </ul>
-        <h1>Detalle Profesor <small>id</small></h1>
+        <h1>Detalle Profesor <small>{{vm.teacher.id}}</small></h1>
     </div>
     <div class="row">
         <div class="callout">
@@ -35,7 +35,7 @@
                     <h4>Teacher name</h4>
                 </div>
                 <div class="card-section">
-                    <img src="assets/img/generic/rectangle-1.jpg" imageonload>
+                    <!--<img src="assets/img/generic/rectangle-1.jpg" imageonload>-->
                 </div>
                 <div class="card-section">
                     <a href="" class="button expanded"><i class="fa fa-book" aria-hidden="true"></i> Editar Materias</a>
@@ -113,15 +113,11 @@
                     <div class="row">
                         <div class="large-12 columns">
                             <strong>Universidad: </strong>
-                            <p>{{vm.teacher.university}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Dirección Universidad: </strong>
-                            <p>{{vm.teacher.universityAddress}}</p>
+                            <p>{{vm.teacher.university.name}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Profesión: </strong>
-                            <p>{{vm.teacher.profession}}</p>
+                            <p>{{vm.teacher.profession.name}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Semestre: </strong>
@@ -129,7 +125,7 @@
                         </div>
                         <div class="large-12 columns">
                             <strong>Fecha de Grado: </strong>
-                            <p>{{vm.teacher.gradeDate}}</p>
+                            <p>{{vm.teacher.momentGradeDate}}</p>
                         </div>
                     </div>
                 </div>
@@ -145,9 +141,7 @@
                 <div class="card-section">
                     <div class="row">
                         <div class="large-12 columns">
-                            <span class="label secondary">Materia 1</span>
-                            <span class="label secondary">Materia 1</span>
-                            <span class="label secondary">Materia 1</span>
+                            <span  ng-repeat="course in vm.teacher.courses" class="label secondary">{{course.courseName}}</span>
                         </div>
                     </div>
                 </div>
@@ -162,23 +156,23 @@
                     <div class="row">
                         <div class="large-12 columns">
                             <strong>Banco: </strong>
-                            <p>{{vm.teacher.bank}}</p>
+                            <p>{{vm.teacher.bankAccount.bank}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Número de Cuenta: </strong>
-                            <p>{{vm.teacher.accountNumber}}</p>
+                            <p>{{vm.teacher.bankAccount.number}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Tipo de Cuenta: </strong>
-                            <p>{{vm.teacher.accountType}}</p>
+                            <p>{{vm.teacher.bankAccount.type}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Nombre titular de la cuenta: </strong>
-                            <p>{{vm.teacher.accountHolderName}}</p>
+                            <p>{{vm.teacher.bankAccount.holderName}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Cedula titular de la cuenta: </strong>
-                            <p>{{vm.teacher.accountHolderIdentification}}</p>
+                            <p>{{vm.teacher.bankAccount.holderIdentification}}</p>
                         </div>
                     </div>
                 </div>
