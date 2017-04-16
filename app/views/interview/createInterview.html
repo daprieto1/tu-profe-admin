@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="large-12 columns">
                         <label>Capacidad
-                            <input id="capacity" name="capacity" type="number" ng-model="vm.interview.capacity" required>
+                            <input id="capacity" name="capacity" type="number" ng-model="vm.interview.capacity" min="0" required>
                             <p class="error" ng-if="createInterview.capacity.$invalid && createInterview.capacity.$dirty">
                                 Por favor indique la capacidad de la entrevista.
                             </p>
@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="large-12 columns">
                         <label>Duración
-                            <input id="duration" name="duration" type="number" ng-model="vm.interview.duration" placeholder="Duración expresada en minutos" required>
+                            <input id="duration" name="duration" type="number" ng-model="vm.interview.duration" placeholder="Duración expresada en minutos" min="0" required>
                             <p class="error" ng-if="createInterview.duration.$invalid && createInterview.duration.$dirty">
                                 Por favor indique la duración de la entrevista en minutos.
                             </p>
