@@ -50,7 +50,7 @@
                 },
 
                 changeValidData: function (teacherId, value) {
-                    return Teacher.changeValidData({ id: teacherId, validData: value }, ).$promise;
+                    return Teacher.changeValidData({ id: teacherId, validData: value }).$promise;
                 },
 
                 acceptGameRules: function (teacherId) {
