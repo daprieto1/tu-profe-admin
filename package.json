@@ -44,6 +44,11 @@
     "dependencies": {
         "express": "^4.14.0",
         "gulp-ruby-sass": "^2.1.0",
-        "gulp-sonar": "^3.0.0"
+        "gulp-sonar": "^3.0.0",
+        "browser-sync": "^2.2.1",
+        "del": "^1.1.1",
+        "gulp": "^3.9.0",
+        "wiredep": "^2.2.2",
+        "gulp-load-plugins": "^0.10.0"
     }
 }

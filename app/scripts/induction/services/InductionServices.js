@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('inductionModule')
-        .factory('InductionServices', function ($resource, TU_PROFE_API) {
+        .factory('InductionServices', function ($resource, envService) {
+            var TU_PROFE_API = envService.read('apiUrl');
             var Induction = $resource(TU_PROFE_API + '/induction/:id', { id: '@id' }, {
                 update: {
                     headers: { 'Content-Type': 'application/json' },

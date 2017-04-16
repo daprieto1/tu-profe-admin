@@ -23,7 +23,8 @@
     "alertify.js": "^0.3.11",
     "angular-local-storage": "^0.5.2",
     "angular-promise-buttons": "^0.1.19",
-    "foundation-datepicker": "^1.5.6"
+    "foundation-datepicker": "^1.5.6",
+    "angular-environment": "^1.0.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",

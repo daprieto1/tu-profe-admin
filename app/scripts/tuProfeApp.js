@@ -13,6 +13,7 @@
         'multipleSelect',
         'LocalStorageModule',
         'angularPromiseButtons',
+        'environment',
         'sessionModule',
         'dashboardModule',
         'courseModule',
@@ -25,7 +26,7 @@
         'professionModule'
     ])
 
-        .config(function ($routeProvider, $locationProvider, $cookiesProvider, localStorageServiceProvider, angularPromiseButtonsProvider) {
+        .config(function ($routeProvider, $locationProvider, $cookiesProvider, localStorageServiceProvider, angularPromiseButtonsProvider, envServiceProvider) {
 
 
             $cookiesProvider.defaults.path = '/';
@@ -60,6 +61,27 @@
                 SUBMIT_ATTR: 'ngSubmit',
                 BTN_SELECTOR: 'button'
             });
+
+            envServiceProvider.config({
+                domains: {
+                    local: ['localhost'],
+                    c9: ['tu-profe-api-node-diegoprieto.c9users.io' ],
+                    heroku:['tu-profe-front.herokuapp.com']
+                },
+                vars: {
+                    local: {
+                        apiUrl: 'http://localhost:8080/api'
+                    },
+                    c9: {
+                        apiUrl: 'https://tu-profe-api-node-diegoprieto.c9users.io:8080/api'
+                    },
+                    heroku: {
+                        apiUrl: 'https://tu-profe-api-node.herokuapp.com/api'
+                    }
+                }
+            });
+            
+            envServiceProvider.check();
 
         })
 

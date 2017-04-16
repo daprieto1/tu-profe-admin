@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('courseModule')
-        .factory('CourseServices', function ($resource, TU_PROFE_API) {
-
+        .factory('CourseServices', function ($resource, envService) {
+            var TU_PROFE_API = envService.read('apiUrl');
             var Course = $resource(TU_PROFE_API + '/courses/:id', { id: '@id' }, {
                 update: {
                     headers: { 'Content-Type': 'application/json' },
