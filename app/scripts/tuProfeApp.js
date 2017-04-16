@@ -66,7 +66,7 @@
                 domains: {
                     local: ['localhost'],
                     c9: ['tu-profe-api-node-diegoprieto.c9users.io' ],
-                    heroku:['tu-profe-front.herokuapp.com']
+                    heroku:['tu-profe-admin.herokuapp.com']
                 },
                 vars: {
                     local: {
