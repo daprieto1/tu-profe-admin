@@ -1,0 +1,28 @@
+<div id="professions" ng-controller="ProfessionsController as vm">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Profesiones
+                </li>
+            </ul>
+            <hr>
+            <h1>Profesiones</h1>
+            <a class="button" href="#!/professions/create">
+                Crear Profesión
+            </a>
+            <table>
+                <thead>
+                    <tr>                        
+                        <th>Nombre</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="profession in vm.professions">
+                        <td><a href="" ng-click="vm.selectProfession(profession)">{{profession.name}}</a></td>                                                
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

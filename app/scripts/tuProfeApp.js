@@ -21,7 +21,8 @@
         'trainingModule',
         'teacherModule',
         'userModule',
-        'schoolModule'
+        'schoolModule',
+        'professionModule'
     ])
 
         .config(function ($routeProvider, $locationProvider, $cookiesProvider, localStorageServiceProvider, angularPromiseButtonsProvider) {
@@ -43,7 +44,7 @@
                     templateUrl: 'views/session/login.html'
                 })
                 .otherwise({
-                    templateUrl: '/'
+                    templateUrl: '/login'
                 });
 
             angularPromiseButtonsProvider.extendConfig({

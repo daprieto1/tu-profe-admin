@@ -1,0 +1,31 @@
+<div id="create-profession" ng-controller="ProfessionCreateController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/professions">Profesiones</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Crear profesión
+            </li>
+        </ul>
+        <h1>Crear Profesión</h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <form name="createProfession">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Nombre
+                            <input id="name" name="name" type="text" ng-model="vm.profession.name" required>
+                            <p class="error" ng-if="createProfession.name.$invalid && createProfession.name.$dirty">
+                                Por favor indique el nombre de la institución.
+                            </p>
+                        </label>
+                    </div>
+                </div>                
+
+                <button class="button" ng-disabled="createProfession.$invalid" ng-click="vm.create()">
+                    Crear
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

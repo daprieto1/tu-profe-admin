@@ -1,0 +1,25 @@
+<div id="detail-profession" ng-controller="ProfessionDetailController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/professions">Profesiones</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Detalle Profesión
+            </li>
+        </ul>
+        <h1>Detalle Profesión <small>{{vm.profession.id}}</small></h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <div class="callout">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <p>Nombre:</p>
+                        <div class="stat">{{vm.profession.name}}</div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <div class="large-6 columns">
+        </div>
+    </div>
+</div>
