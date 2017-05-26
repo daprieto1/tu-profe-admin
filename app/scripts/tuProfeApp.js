@@ -65,7 +65,7 @@
             envServiceProvider.config({
                 domains: {
                     local: ['localhost'],
-                    c9: ['tu-profe-api-node-diegoprieto.c9users.io' ],
+                    c9: ['tu-profe-admin-diegoprieto.c9users.io' ],
                     heroku:['tu-profe-admin.herokuapp.com']
                 },
                 vars: {
