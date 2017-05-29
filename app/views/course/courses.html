@@ -15,15 +15,13 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Área</th>
-                        <th>Clasificación</th>                        
+                        <th>Dificultad</th>                    
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="course in vm.courses">
                         <td><a href="" ng-click="vm.selectCourse(course)">{{course.courseName}}</a></td>                    
-                        <td>{{course.area}}</td>
-                        <td>{{course.classification}}</td>
+                        <td>{{course.difficulty}}</td>
                     </tr>
                 </tbody>
             </table>

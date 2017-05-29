@@ -24,23 +24,10 @@
 
                 <div class="row">
                     <div class="large-12 columns">
-                        <label>Área
-                            <select name="area" id="area"
-                                ng-options="area.label for area in vm.courseAreas track by area.id"
-                                ng-model="vm.course.area" required></select>
-                            <p class="error" ng-if="createCourse.area.$invalid && createCourse.area.$dirty">
-                                Por favor seleccione un área.
-                            </p>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="large-12 columns">
-                        <label>Clasificación
-                            <select name="classification" id="classification"
-                                ng-options="classification.label for classification in vm.courseClassifications track by classification.id"
-                                ng-model="vm.course.classification" required></select>
+                        <label>Dificultad
+                            <select name="difficulty" id="difficulty"
+                                ng-options="difficulty.label for difficulty in vm.courseDifficulties track by difficulty.id"
+                                ng-model="vm.course.difficulty" required></select>
                         </label>
                     </div>
                 </div>

@@ -2,13 +2,12 @@
     'use strict';
 
     angular.module('courseModule')
-        .controller('CourseCreateController', function ($location, localStorageService, CourseServices, COURSE_AREAS, COURSE_CLASSIFICATIONS) {
+        .controller('CourseCreateController', function ($location, localStorageService, CourseServices, COURSE_DIFFICULTIES) {
             var vm = this;
 
             vm.create = function () {
                 var course = angular.copy(vm.course);
-                course.area = course.area.label;
-                course.classification = course.classification.label;
+                course.difficulty = course.difficulty.label;
                 
                 CourseServices.create(course)
                     .then(function (response) {
@@ -21,8 +20,7 @@
 
             function initCtrl() {
                 vm.course = {};
-                vm.courseAreas = COURSE_AREAS;
-                vm.courseClassifications = COURSE_CLASSIFICATIONS;
+                vm.courseDifficulties = COURSE_DIFFICULTIES;
             }
 
             initCtrl();

@@ -32,6 +32,7 @@
                                         return profession.id === teacher.profession;
                                     });
 
+                                    teacher.courses = teacher.courses || [];
                                     teacher.courses = courses.filter(function (course) {
                                         return teacher.courses.indexOf(course.id) > -1;
                                     });

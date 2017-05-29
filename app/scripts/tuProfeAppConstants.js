@@ -20,55 +20,18 @@
             }, rejected: {
                 id: 5
             }
-        })
+        })       
 
-        .constant('COURSE_AREAS', [
-            {
-                id: 1,
-                label: 'Colegio'
-            }, {
-                id: 2,
-                label: 'Idioma'
-            }, {
-                id: 3,
-                label: 'Profundización'
-            }, {
-                id: 4,
-                label: 'Física'
-            }, {
-                id: 5,
-                label: 'Música'
-            }, {
-                id: 6,
-                label: 'Biología'
-            }, {
-                id: 7,
-                label: 'Química'
-            }, {
-                id: 8,
-                label: 'Matemáticas'
-            }, {
-                id: 9,
-                label: 'Programas'
-            }
-        ])
-
-        .constant('COURSE_CLASSIFICATIONS', [
+        .constant('COURSE_DIFFICULTIES', [
             {
                 id: 1,
                 label: 'Regular'
             }, {
                 id: 2,
-                label: 'Idiomas'
-            }, {
-                id: 3,
                 label: 'Especializado'
-            }, {
-                id: 4,
-                label: 'Música'
-            },
+            }
         ])
-        
+
         .constant('SCHOOL_TYPES', [
             {
                 id: 1,
