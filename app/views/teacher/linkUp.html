@@ -1,25 +1,20 @@
 <div id="link-up-teacher" ng-controller="LinkUpController as vm">
     <div class="row">
         <ul class="breadcrumbs">
+            <li><a href="#!/link-up-teachers">Profesores en Vinculación</a></li>
             <li>
-                <span class="show-for-sr">Current: </span> Vinculación
+                <span class="show-for-sr">Current: </span> Profesor {{vm.teacher.name}}
             </li>
         </ul>
         <h1>Vinculación <small>{{vm.teacher.id}}</small></h1>
     </div>
     <div class="row">
-        <div class="large-12 columns">
-            <button class="button float-right">
-                Siguiente <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </button>
-        </div>
-    </div>
-    <div class="row">
         <div class="callout">
             <div class="row">
                 <div class="large-3 columns">
-                    <p><i class="fa fa-{{vm.teacher.validData ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i> Datos
-                        validos</p>
+                    <p>
+                        <i class="fa fa-{{vm.teacher.validData ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Datos validos
+                    </p>
                     <p><i class="fa fa-{{vm.teacher.acceptGameRules ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Reglas de juego aceptadas</p>
                 </div>
                 <div class="large-3 columns">
@@ -48,13 +43,21 @@
                     <h4>{{vm.teacher.name}} {{vm.teacher.lastName}}</h4>
                 </div>
                 <div class="card-section">
-                    <img src="assets/img/generic/rectangle-1.jpg" imageonload>
+                    <img src="assets/img/generic/rectangle-1.jpg" imageonload="'images/teacherProfile/linkUp/profile.svg'">
                 </div>
                 <div class="card-section">
-                    <a href="{{cloudFront.domainName + '/teacher/curriculum/' + vm.teacher.id + '.docx'}}" class="button expanded"><i class="fa fa-download" aria-hidden="true"></i> Hoja de Vida</a>
-                    <a href="" class="button expanded" ng-click="vm.changeValidData('true')"><i class="fa fa-check-square" aria-hidden="true"></i> Validar Datos</a>
-                    <a href="" class="button expanded" ng-click="vm.openSelectInterviewModal()"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Entrevista</a>
-                    <a href="" class="button expanded" ng-click="vm.validCultureForm()"><i class="fa fa-check-square" aria-hidden="true"></i> Cultura Tu Profe</a>
+                    <a href="{{cloudFront.domainName + '/teachers/curriculum/' + vm.teacher.id + '.docx'}}" class="button expanded"><i class="fa fa-download" aria-hidden="true"></i> Hoja de Vida</a>
+                    <a href="" class="button expanded" ng-click="vm.changeValidData()">
+                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                        Cambiar Datos Validos
+                    </a>
+                    <a href="" class="button expanded" ng-click="vm.openSelectInterviewModal()" ng-if="vm.teacher.interview === undefined">
+                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Entrevista
+                    </a>
+                    <a href="" class="button expanded" ng-click="vm.changeCultureForm()" ng-if="!vm.teacher.cultureForm">
+                        <i class="fa fa-check-square" aria-hidden="true"></i> 
+                        Cultura Tu Profe
+                    </a>
                     <a href="" class="button expanded"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Inducción</a>
                 </div>
             </div>
@@ -216,7 +219,7 @@
                             <form name="editProfileDescription" ng-if="vm.editProfileData" ng-submit="vm.editProfileDescription()" promise-btn novalidate>
                                 <textarea name="profileDescription" id="profileDescription" rows="10" maxlength="500" ng-model="vm.teacher.profileDescription"
                                     required></textarea>
-                                    <button class="button" type="submit" ng-disabled="editProfileDescription.$invalid">
+                                <button class="button" type="submit" ng-disabled="editProfileDescription.$invalid">
                                     Guardar
                                 </button>
                             </form>

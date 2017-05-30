@@ -88,7 +88,7 @@
         .run(function ($rootScope) {
 
             $rootScope.cloudFront = {
-                domainName: 'http://d1ql3lvdg7tehd.cloudfront.net'
+                domainName: 'http://dl7v16017ye41.cloudfront.net'
             };
 
             $rootScope.$apply(function () {

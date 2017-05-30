@@ -7,6 +7,9 @@
                 .when('/link-up', {
                     templateUrl: 'views/teacher/linkUp.html'
                 })
+                .when('/link-up-teachers', {
+                    templateUrl: 'views/teacher/linkUpTeachers.html'
+                })
                 .when('/teachers', {
                     templateUrl: 'views/teacher/teachers.html'
                 })

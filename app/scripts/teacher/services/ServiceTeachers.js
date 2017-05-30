@@ -7,28 +7,18 @@
             var Teacher = $resource(TU_PROFE_API + '/teachers/:id', { id: '@id' }, {
                 update: {
                     headers: { 'Content-Type': 'application/json' },
-                    url: TU_PROFE_API + '/teacher',
+                    url: TU_PROFE_API + '/teachers',
                     method: 'PUT'
                 },
-                activateAccount: {
-                    url: TU_PROFE_API + '/teacher/activate-account/:id',
-                    params: { id: '@id' },
-                    method: 'POST'
-                },
                 changeValidData: {
-                    url: TU_PROFE_API + '/teacher/change-valid-data/:id',
-                    params: { id: '@id', validData: '' },
-                    method: 'POST'
-                },
-                acceptGameRules: {
-                    url: TU_PROFE_API + '/teacher/accept-game-rules/:id',
+                    url: TU_PROFE_API + '/teachers/change-valid-data/:id',
                     params: { id: '@id' },
                     method: 'POST'
                 },
-                takeExam: {
-                    url: TU_PROFE_API + '/teacher/take-exam/:id',
-                    params: { id: '@id' },
-                    method: 'POST'
+                getLinkUpTeachers: {
+                    url: TU_PROFE_API + '/teachers/link-up/all',
+                    method: 'GET',
+                    isArray: true
                 }
             })
 
@@ -49,8 +39,8 @@
                     return Teacher.activateAccount({ id: teacherId }).$promise;
                 },
 
-                changeValidData: function (teacherId, value) {
-                    return Teacher.changeValidData({ id: teacherId, validData: value }).$promise;
+                changeValidData: function (teacherId) {
+                    return Teacher.changeValidData({ id: teacherId }).$promise;
                 },
 
                 acceptGameRules: function (teacherId) {
@@ -87,6 +77,10 @@
                         headers: { 'Content-Type': undefined },
                         transformRequest: angular.identity
                     });
+                },
+
+                getLinkUpTeachers: () => {
+                    return Teacher.getLinkUpTeachers().$promise;
                 }
             };
         });

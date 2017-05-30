@@ -12,7 +12,7 @@
                 },
                 getAllActive: {
                     headers: { 'Content-Type': 'application/json' },
-                    url: TU_PROFE_API + '/interviews/active',
+                    url: TU_PROFE_API + '/interviews/active/all',
                     isArray: true,
                     method: 'GET'
                 },

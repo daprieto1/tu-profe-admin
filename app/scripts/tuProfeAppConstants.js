@@ -8,19 +8,25 @@
 
         .constant('TEACHER_STATES', {
             signUp: {
-                id: 0
+                id: 0,
+                label: 'Registrado'
             }, curriculum: {
-                id: 1
+                id: 1,
+                label: 'Curriculum'
             }, interview: {
-                id: 2
+                id: 2,
+                label: 'En entrevista'
             }, inactive: {
-                id: 3
+                id: 3,
+                label: 'Inactivo'
             }, active: {
-                id: 4
+                id: 4,
+                label: 'Activo'
             }, rejected: {
-                id: 5
+                id: 5,
+                label: 'Rechazado'
             }
-        })       
+        })
 
         .constant('COURSE_DIFFICULTIES', [
             {

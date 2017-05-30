@@ -2,43 +2,49 @@
     'use strict';
 
     angular.module('teacherModule')
-        .controller('LinkUpController', function ($modal, InterviewServices, CourseServices, ServiceTeachers, TEACHER_STATES) {
+        .controller('LinkUpController', function ($modal, $q, localStorageService, SchoolServices, ProfessionServices, InterviewServices, CourseServices, ServiceTeachers, TEACHER_STATES) {
             var vm = this;
 
-            vm.validCultureForm = function () {
-                var t = { id: vm.teacher.id, cultureForm: true };
-                return ServiceTeachers.update(t)
+            vm.changeCultureForm = function () {
+                vm.originalTeacher.cultureForm = true;
+                return ServiceTeachers.update(vm.originalTeacher)
                     .then(function () {
                         vm.cultureForm = false;
-                        alertify.success('La descripción de perfil ha sido actualizada');
+                        alertify.success('El Formulario de cultura de tu profe ha sido validado');
+                        getTeacher(vm.teacher.id);
                     }, function (error) {
-                        alertify.error('La descripción de perfil no ha sido actualizada:' + error.data.message);
+                        alertify.error('El Formulario de cultura de tu profe no ha sido validado:' + error.data.message);
                     });
             };
 
-            vm.changeValidData = function (validData) {
-                return ServiceTeachers.changeValidData(vm.teacher.id, validData)
+            vm.changeValidData = function () {
+                return ServiceTeachers.changeValidData(vm.teacher.id)
                     .then(function () {
-                        vm.teacher.validData = validData ? true : false;
                         alertify.success('La validez de los datos del profesor se actualizado con éxito.');
+                        getTeacher(vm.teacher.id);
                     }, function (error) {
                         alertify.error('La validez de los datos del profesor no se ha actualizado:' + error.data.message);
                     });
             };
 
             vm.editProfileDescription = function () {
-                var t = { id: vm.teacher.id, profileDescription: vm.teacher.profileDescription };
-                return ServiceTeachers.update(t)
+                vm.originalTeacher.profileDescription = vm.teacher.profileDescription;
+                return ServiceTeachers.update(vm.originalTeacher)
                     .then(function () {
                         vm.editProfileData = false;
                         alertify.success('La descripción de perfil ha sido actualizada');
+                        getTeacher(vm.teacher.id);
                     }, function (error) {
                         alertify.error('La descripción de perfil no ha sido actualizada:' + error.data.message);
                     });
             };
 
             vm.canLinkUpTeacher = function () {
-                return false;
+                return vm.teacher.validData &&
+                    vm.teacher.acceptGameRules &&
+                    vm.teacher.exam.passExam &&
+                    vm.teacher.cultureForm &&
+                    vm.teacher.courses.length > 0;
             };
 
             vm.openSelectInterviewModal = function () {
@@ -79,24 +85,37 @@
                 });
             };
 
+            function getTeacher(teacherId) {
+                $q.all([
+                    SchoolServices.getAll(),
+                    ProfessionServices.getAll(),
+                    CourseServices.getAll(),
+                    ServiceTeachers.getTeacher(vm.teacher.id)
+                ])
+                    .then(([schools, professions, courses, teacher]) => {
+                        vm.originalTeacher = angular.copy(teacher);
+
+                        teacher.courses = teacher.courses || [];
+                        teacher.courses = courses.filter(function (course) {
+                            return teacher.courses.indexOf(course.id) > -1;
+                        });
+
+                        vm.teacher = teacher;
+                    });
+            }
+
             function initCtrl() {
                 vm.editProfileData = false;
 
                 vm.ready = false;
-                vm.teacher = {};
+                vm.teacher = localStorageService.get('selectedTeacher');
                 vm.teacher.gradeDateMoment = moment(vm.teacher.gradeDate).format('MMMM Do YYYY');
 
-                ServiceTeachers.getTeacher('7dfd7f6b-f6fc-4d27-9c37-e43ce063c300')
-                    .then(function (teacherResponse) {
-                        vm.teacher = teacherResponse;
-                        CourseServices.getAll()
-                            .then(function (response) {
-                                vm.courses = response;
-                                vm.teacher.courses = vm.courses.filter(function (course) {
-                                    return vm.teacher.courses.indexOf(course.id) > -1;
-                                });
-                            });
-                    });
+                if (angular.isDefined(vm.teacher) && angular.isDefined(vm.teacher.id)) {
+                    getTeacher(vm.teacher.id);
+                } else {
+                    $location.path('/link-up-teachers');
+                }
 
             }
 

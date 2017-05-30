@@ -1,0 +1,35 @@
+<div id="link-up-teachers" ng-controller="LinkUpTeachersController as vm">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Profesores
+                </li>
+            </ul>
+            <hr>
+            <h1>Profesores en Proceso de Vinculación</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Celular</th>
+                        <th>Estado</th>
+                        <th>Universidad</th>
+                        <th>Profesión</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="teacher in vm.teachers">
+                        <td><a href="" ng-click="vm.selectTeacher(teacher)">{{teacher.name + ' ' + teacher.lastName}}</a></td>
+                        <td>{{teacher.email}}</td>
+                        <td>{{teacher.cellPhone}}</td>
+                        <td><span ng-class="vm.getStateClass(teacher)">{{teacher.state.label}}</span></td>
+                        <td>{{teacher.university.name}}</td>
+                        <td>{{teacher.profession.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
