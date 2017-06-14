@@ -1,3 +1,39 @@
-<div id="advisory-services">
-    Servicios
+<div id="advisory-services" ng-controller="AdvisoryServicesController as vm">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Asesorias
+                </li>
+            </ul>
+            <hr>
+            <h1>Asesorias</h1>
+            <table>
+                <thead>
+                    <tr>                        
+                        <th></th>
+                        <th>Id</th>
+                        <th>Fecha Creación</th>
+                        <th>Estado</th>            
+                        <th>Estudiantes</th>            
+                        <th>Sesiones</th>      
+                        <th>Fecha Inicio</th>      
+                        <th>Curso</th>      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="advisory in vm.advisories">
+                        <td></td>
+                        <td><a href="" ng-click="vm.selectAdvisory(advisory)">{{advisory.id}}</a></td>                        
+                        <td>{{advisory.createdAtShow}}</td>
+                        <td></td>
+                        <td>{{advisory.numStudents}}</td>
+                        <td>{{advisory.sessions.length}}</td>
+                        <td>{{advisory.startDateShow}}</td>
+                        <td>{{advisory.course.courseName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
