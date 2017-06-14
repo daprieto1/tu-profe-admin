@@ -24,7 +24,8 @@
         'userModule',
         'schoolModule',
         'professionModule',
-        'advisoryServiceModule'
+        'advisoryServiceModule',
+        'scheduleModule'
     ])
 
         .config(function ($routeProvider, $locationProvider, $cookiesProvider, localStorageServiceProvider, angularPromiseButtonsProvider, envServiceProvider) {

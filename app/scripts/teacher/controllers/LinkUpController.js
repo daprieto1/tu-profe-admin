@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('teacherModule')
-        .controller('LinkUpController', function ($modal, $q, localStorageService, SchoolServices, ProfessionServices, InterviewServices, CourseServices, ServiceTeachers, TEACHER_STATES) {
+        .controller('LinkUpController', function ($modal, $q, localStorageService, ServiceSchedulers, SchoolServices, ProfessionServices, InterviewServices, CourseServices, ServiceTeachers, TEACHER_STATES) {
             var vm = this;
 
             vm.changeCultureForm = function () {
@@ -90,9 +90,10 @@
                     SchoolServices.getAll(),
                     ProfessionServices.getAll(),
                     CourseServices.getAll(),
-                    ServiceTeachers.getTeacher(vm.teacher.id)
+                    ServiceTeachers.getTeacher(vm.teacher.id),
+                    ServiceSchedulers.getSchedule(vm.teacher.id)
                 ])
-                    .then(([schools, professions, courses, teacher]) => {
+                    .then(([schools, professions, courses, teacher, schedule]) => {
                         vm.originalTeacher = angular.copy(teacher);
 
                         teacher.courses = teacher.courses || [];
@@ -101,6 +102,7 @@
                         });
 
                         vm.teacher = teacher;
+                        vm.schedule = schedule;
                     });
             }
 

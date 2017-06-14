@@ -39,144 +39,158 @@
                 </div>
                 <div class="card-section">
                     <a href="" class="button expanded"><i class="fa fa-book" aria-hidden="true"></i> Editar Materias</a>
-                    <a href="" class="button expanded"><i class="fa fa-calendar" aria-hidden="true"></i> Editar Horario</a>
+                    <a href="" class="button expanded" ng-click="vm.showSchedule = true"><i class="fa fa-calendar" aria-hidden="true"></i> Editar Horario</a>
                     <a href="" class="button expanded alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Bloquear</a>
                 </div>
             </div>
         </div>
-        <div class="large-5 columns">
-            <div class="card">
-                <div class="card-divider">
-                    <h4>
-                        Datos de Cuenta
-                    </h4>
-                </div>
-                <div class="card-section">
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <strong>Nombre: </strong>
-                            <p>Nombre</p>
+        
+        <div class="large-10 columns">
+            <tabset>
+                <tab heading="Datos Básicos" active="vm.basicDataView">
+                </tab>
+                <tab heading="Horario" active="vm.scheduleView">
+                </tab>
+            </tabset>
+            <div ng-show="vm.basicDataView">
+                <div class="row">
+                    <div class="large-6 columns">
+                        <div class="card">
+                            <div class="card-divider">
+                                <h4>
+                                    Datos de Cuenta
+                                </h4>
+                            </div>
+                            <div class="card-section">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <strong>Nombre: </strong>
+                                        <p>Nombre</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Apellido: </strong>
+                                        <p>{{vm.teacher.lastName}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Correo electrónico: </strong>
+                                        <p>{{vm.teacher.email}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="large-12 columns">
-                            <strong>Apellido: </strong>
-                            <p>{{vm.teacher.lastName}}</p>
+                        <div class="card">
+                            <div class="card-divider">
+                                <h4>
+                                    Datos Personales
+                                </h4>
+                            </div>
+                            <div class="card-section">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <strong>Cédula: </strong>
+                                        <p>{{vm.teacher.identification}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Celular: </strong>
+                                        <p>{{vm.teacher.cellPhone}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Teléfono Fijo: </strong>
+                                        <p>{{vm.teacher.phone}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Ciudad: </strong>
+                                        <p>{{vm.teacher.city}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Barrio: </strong>
+                                        <p>{{vm.teacher.neighborhood}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Dirección: </strong>
+                                        <p>{{vm.teacher.address}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="large-12 columns">
-                            <strong>Correo electrónico: </strong>
-                            <p>{{vm.teacher.email}}</p>
+                        <div class="card">
+                            <div class="card-divider">
+                                <h4>
+                                    Datos Académicos
+                                </h4>
+                            </div>
+                            <div class="card-section">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <strong>Universidad: </strong>
+                                        <p>{{vm.teacher.university.name}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Profesión: </strong>
+                                        <p>{{vm.teacher.profession.name}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Semestre: </strong>
+                                        <p>{{vm.teacher.semester}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Fecha de Grado: </strong>
+                                        <p>{{vm.teacher.momentGradeDate}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="large-6 columns" ng-click="vm.render()">
+                        <div class="card">
+                            <div class="card-divider">
+                                <h4>
+                                    Materias
+                                </h4>
+                            </div>
+                            <div class="card-section">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <span  ng-repeat="course in vm.teacher.courses" class="label secondary">{{course.courseName}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-divider">
+                                <h4>
+                                    Datos Financieros
+                                </h4>
+                            </div>
+                            <div class="card-section">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <strong>Banco: </strong>
+                                        <p>{{vm.teacher.bankAccount.bank}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Número de Cuenta: </strong>
+                                        <p>{{vm.teacher.bankAccount.number}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Tipo de Cuenta: </strong>
+                                        <p>{{vm.teacher.bankAccount.type}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Nombre titular de la cuenta: </strong>
+                                        <p>{{vm.teacher.bankAccount.holderName}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Cedula titular de la cuenta: </strong>
+                                        <p>{{vm.teacher.bankAccount.holderIdentification}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-divider">
-                    <h4>
-                        Datos Personales
-                    </h4>
-                </div>
-                <div class="card-section">
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <strong>Cédula: </strong>
-                            <p>{{vm.teacher.identification}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Celular: </strong>
-                            <p>{{vm.teacher.cellPhone}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Teléfono Fijo: </strong>
-                            <p>{{vm.teacher.phone}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Ciudad: </strong>
-                            <p>{{vm.teacher.city}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Barrio: </strong>
-                            <p>{{vm.teacher.neighborhood}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Dirección: </strong>
-                            <p>{{vm.teacher.address}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-divider">
-                    <h4>
-                        Datos Académicos
-                    </h4>
-                </div>
-                <div class="card-section">
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <strong>Universidad: </strong>
-                            <p>{{vm.teacher.university.name}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Profesión: </strong>
-                            <p>{{vm.teacher.profession.name}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Semestre: </strong>
-                            <p>{{vm.teacher.semester}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Fecha de Grado: </strong>
-                            <p>{{vm.teacher.momentGradeDate}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="large-5 columns">
-            <div class="card">
-                <div class="card-divider">
-                    <h4>
-                        Materias
-                    </h4>
-                </div>
-                <div class="card-section">
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <span  ng-repeat="course in vm.teacher.courses" class="label secondary">{{course.courseName}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-divider">
-                    <h4>
-                        Datos Financieros
-                    </h4>
-                </div>
-                <div class="card-section">
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <strong>Banco: </strong>
-                            <p>{{vm.teacher.bankAccount.bank}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Número de Cuenta: </strong>
-                            <p>{{vm.teacher.bankAccount.number}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Tipo de Cuenta: </strong>
-                            <p>{{vm.teacher.bankAccount.type}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Nombre titular de la cuenta: </strong>
-                            <p>{{vm.teacher.bankAccount.holderName}}</p>
-                        </div>
-                        <div class="large-12 columns">
-                            <strong>Cedula titular de la cuenta: </strong>
-                            <p>{{vm.teacher.bankAccount.holderIdentification}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="schedule" ng-show="vm.scheduleView"></div>
         </div>
     </div>
 </div>
