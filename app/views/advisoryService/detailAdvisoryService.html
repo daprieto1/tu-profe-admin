@@ -1,0 +1,174 @@
+<div id="detail-advisory-service" ng-controller="AdvisoryServiceDetailController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/advisory-services">Asesorias</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Detalle Asesoria
+            </li>
+        </ul>
+        <h1>Detalle Asesoria <small>{{vm.advisory.id}}</small></h1>
+    </div>
+    <div class="row">
+
+    </div>
+
+    <div class="row">
+        <div class="large-2 columns">
+            <div class="card">
+                <div class="card-section">
+                    <!--<img src="assets/img/generic/rectangle-1.jpg" imageonload>-->
+                </div>
+                <div class="card-section">
+                    <a href="" class="button expanded"><i class="fa fa-book" aria-hidden="true"></i> Asignar</a>
+                    <a href="" class="button expanded" ng-click="vm.showSchedule = true"><i class="fa fa-calendar" aria-hidden="true"></i> Editar Sesión</a>
+                    <a href="" class="button expanded alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Cancelar</a>
+                </div>
+            </div>
+        </div>
+        <div class="large-10 columns">
+            <tabset>
+                <tab heading="Datos Básicos" active="vm.basicDataView">
+                </tab>
+                <tab heading="Sesiones Lista" active="vm.sessionsListView">
+                </tab>
+                <tab heading="Sesiones Calendario" active="vm.sessionsCalendarView" ng-click="vm.renderCalendar()">
+                </tab>
+            </tabset>
+
+            <div ng-show="vm.basicDataView">
+                <div class="row">
+                    <div class="large-6 columns">
+                        <div class="card">
+                            <div class="card-divider">
+                                <h4>
+                                    Datos del Estudiante
+                                </h4>
+                            </div>
+                            <div class="card-section">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <strong>Nombre: </strong>
+                                        <p>{{vm.student.name}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Apellido: </strong>
+                                        <p>{{vm.student.lastName}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Correo electrónico: </strong>
+                                        <p>{{vm.student.email}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Celular: </strong>
+                                        <p>{{vm.student.cellPhone}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-divider">
+                                <h4>
+                                    Datos de Costo
+                                </h4>
+                            </div>
+                            <div class="card-section">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <strong>Costo total: </strong>
+                                        <p>$ {{vm.advisory.cost.total.toLocaleString()}}</p>
+                                    </div>
+                                    <div ng-show="vm.advisory.type === 1">
+                                        <div class="large-12 columns">
+                                            <strong>Costo por Mes: </strong>
+                                            <p>$ {{vm.advisory.cost.costPerMonth.toLocaleString()}}</p>
+                                        </div>
+                                        <div class="large-12 columns">
+                                            <strong>Meses: </strong>
+                                            <p>{{vm.advisory.months}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div ng-show="vm.advisory.type === 2">
+                                        <div class="large-12 columns">
+                                            <strong>Costo por Hora: </strong>
+                                            <p>$ {{vm.advisory.cost.costPerHour.toLocaleString()}}</p>
+                                        </div>
+                                        <div class="large-12 columns">
+                                            <strong>Horas: </strong>
+                                            <p>{{vm.advisory.numberHours}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="large-6 columns">
+                        <div class="card">
+                            <div class="card-divider">
+                                <h4>
+                                    Datos Generales
+                                </h4>
+                            </div>
+                            <div class="card-section">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <strong>Fecha de Creación: </strong>
+                                        <p>{{vm.advisory.createdAtShow}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Fecha de Inicio: </strong>
+                                        <p>{{vm.advisory.startDateShow}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Curso: </strong>
+                                        <p>{{vm.advisory.course.courseName}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Número de Sesiones: </strong>
+                                        <p>{{vm.advisory.sessions.length}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Número de Estudiantes: </strong>
+                                        <p>{{vm.advisory.numStudents}}</p>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <strong>Descripción: </strong>
+                                        <p>{{vm.advisory.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="vm.sessionsListView">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Duración</th>
+                            <th>Estado</th>
+                            <th>Profesor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="session in vm.advisory.sessions track by $index">
+                            <td>Sesión {{$index + 1}}</td>
+                            <td>{{session.startDateToShow}}</td>
+                            <td>{{session.startTime}}</td>
+                            <td>{{session.numHours}} Horas</td>
+                            <td><span class="label">{{session.state.label}}</span></td>
+                            <td>{{session.teacher}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="calendar" ng-show="vm.sessionsCalendarView" ng-click="vm.renderCalendar()"></div>
+        </div>
+    </div>
+</div>

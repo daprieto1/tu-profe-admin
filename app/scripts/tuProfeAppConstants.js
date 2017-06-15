@@ -46,5 +46,21 @@
                 id: 2,
                 label: 'Colegio'
             }
+        ])
+
+        .constant('SESSION_STATES', [
+            {
+                id: 0,
+                label: 'Pendiente'
+            }, {
+                id: 1,
+                label: 'En Proceso'
+            }, {
+                id: 2,
+                label: 'Terminada'
+            }, {
+                id: 3,
+                label: 'Congelada'
+            }
         ]);
 })();
