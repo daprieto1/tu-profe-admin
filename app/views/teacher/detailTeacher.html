@@ -12,15 +12,17 @@
         <div class="callout">
             <div class="row">
                 <div class="large-3 columns">
-                    <p><i class="fa fa-times-circle" aria-hidden="true"></i> Datos validos</p>
-                    <p><i class="fa fa-check-circle" aria-hidden="true"></i> Reglas de juego aceptadas</p>
+                    <p>
+                        <i class="fa fa-{{vm.teacher.validData ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Datos validos
+                    </p>
+                    <p><i class="fa fa-{{vm.teacher.acceptGameRules ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Reglas de juego aceptadas</p>
                 </div>
                 <div class="large-3 columns">
-                    <p><i class="fa fa-check-circle" aria-hidden="true"></i> Exámen aprobado</p>
-                    <p><i class="fa fa-times-circle" aria-hidden="true"></i> Formulario de cultura valido</p>
+                    <p><i class="fa fa-{{vm.teacher.exam.passExam ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Exámen aprobado</p>
+                    <p><i class="fa fa-{{vm.teacher.cultureForm ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Formulario de cultura valido</p>
                 </div>
                 <div class="large-3 columns">
-                    <p><i class="fa fa-times-circle" aria-hidden="true"></i> Materias escogidas</p>
+                    <p><i class="fa fa-{{vm.teacher.courses.length > 0 ? 'check-circle' : 'times-circle'}}" aria-hidden="true"></i>                        Materias escogidas</p>
                     <p><i class="fa fa-check-circle" aria-hidden="true"></i> Horario valido</p>
                 </div>
                 <div class="large-3 columns">
@@ -32,7 +34,7 @@
         <div class="large-2 columns">
             <div class="card">
                 <div class="card-divider">
-                    <h4>Teacher name</h4>
+                    <h4>{{vm.teacher.name}}</h4>
                 </div>
                 <div class="card-section">
                     <!--<img src="assets/img/generic/rectangle-1.jpg" imageonload>-->
@@ -44,12 +46,14 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="large-10 columns">
             <tabset>
                 <tab heading="Datos Básicos" active="vm.basicDataView">
                 </tab>
-                <tab heading="Horario" active="vm.scheduleView">
+                <tab heading="Horario" active="vm.scheduleView" ng-click="vm.renderSchedule()">
+                </tab>
+                <tab heading="Horario" active="vm.calendarView" ng-click="vm.renderCalendar()">
                 </tab>
             </tabset>
             <div ng-show="vm.basicDataView">
@@ -65,7 +69,7 @@
                                 <div class="row">
                                     <div class="large-12 columns">
                                         <strong>Nombre: </strong>
-                                        <p>Nombre</p>
+                                        <p>{{vm.teacher.name}}</p>
                                     </div>
                                     <div class="large-12 columns">
                                         <strong>Apellido: </strong>
@@ -151,7 +155,7 @@
                             <div class="card-section">
                                 <div class="row">
                                     <div class="large-12 columns">
-                                        <span  ng-repeat="course in vm.teacher.courses" class="label secondary">{{course.courseName}}</span>
+                                        <span ng-repeat="course in vm.teacher.courses" class="label secondary">{{course.courseName}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -191,6 +195,7 @@
                 </div>
             </div>
             <div id="schedule" ng-show="vm.scheduleView"></div>
+            <div id="calendar" ng-show="vm.calendarView"></div>
         </div>
     </div>
 </div>

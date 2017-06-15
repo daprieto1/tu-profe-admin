@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
     angular.module('scheduleModule')
         .factory('ServiceSchedulers', function ($resource, $http, envService) {
@@ -10,7 +10,7 @@
                     method: 'POST'
                 }
             });
-            
+
             var parseTime = (time) => {
                 var time = time < 1000 ? '0' + time : time + '';
                 return [time.substr(0, 2), time.substr(2, 2), '00'].join(':');
@@ -24,16 +24,16 @@
                 addSection: (scheduleId, section) => {
                     return Schedule.addSection({ scheduleId: scheduleId }, section).$promise;
                 },
-                
+
                 deleteSection: (scheduleId, section) => {
                     return $http({
                         method: 'DELETE',
-                        url:TU_PROFE_API + '/schedules/'+scheduleId+'/sections',
+                        url: TU_PROFE_API + '/schedules/' + scheduleId + '/sections',
                         data: section,
-                        headers: {'Content-Type': 'application/json'}
+                        headers: { 'Content-Type': 'application/json' }
                     });
                 },
-                
+
                 parseSectionToEvent: (section) => {
                     var date = moment().day(section.day).format('YYYY-MM-DD');
                     return {
