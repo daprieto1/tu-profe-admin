@@ -62,5 +62,27 @@
                 id: 3,
                 label: 'Congelada'
             }
+        ])
+        
+        .constant('ADVISORY_SERVICE_STATES', [
+            {
+                id: 1,
+                label: 'Creado'
+            }, {
+                id: 2,
+                label: 'Pagado'
+            }, {
+                id: 3,
+                label: 'Disponible'
+            }, {
+                id: 4,
+                label: 'En Proceso'
+            }, {
+                id: 5,
+                label: 'Terminado'
+            }, {
+                id: 6,
+                label: 'Cancelado'
+            }
         ]);
 })();

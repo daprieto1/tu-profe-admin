@@ -23,10 +23,13 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="advisory in vm.advisories">
-                        <td></td>
+                        <td style="min-width:45px">
+                            <img src="images/advisory-service/learning.svg" alt="" ng-show="advisory.type===1" style="max-width:45px">
+                            <img src="images/advisory-service/scientist.svg" alt="" ng-show="advisory.type===2" style="max-width:45px">
+                        </td>
                         <td><a href="" ng-click="vm.selectAdvisory(advisory)">{{advisory.id}}</a></td>                        
                         <td>{{advisory.createdAtShow}}</td>
-                        <td></td>
+                        <td><span class="label">{{advisory.state.label}}</span></td>
                         <td>{{advisory.numStudents}}</td>
                         <td>{{advisory.sessions.length}}</td>
                         <td>{{advisory.startDateShow}}</td>

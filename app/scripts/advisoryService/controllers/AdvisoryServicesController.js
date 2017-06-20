@@ -1,6 +1,6 @@
 (function () {
     angular.module('advisoryServiceModule')
-        .controller('AdvisoryServicesController', function ($location, localStorageService, ServiceAdvisoryServices) {
+        .controller('AdvisoryServicesController', function ($location, localStorageService, ServiceAdvisoryServices, ADVISORY_SERVICE_STATES) {
             var vm = this;
 
             vm.selectAdvisory = (advisory) => {
@@ -14,6 +14,7 @@
                         advisories.map(advisory => {
                             advisory.createdAtShow = moment(advisory.createdAt).format('MMMM Do YYYY, h:mm a');
                             advisory.startDateShow = moment(advisory.startDate).format('MMMM Do YYYY, h:mm a');
+                            advisory.state = ADVISORY_SERVICE_STATES.find(state => { return state.id === advisory.state });
                             return advisory;
                         });
                         vm.advisories = advisories;

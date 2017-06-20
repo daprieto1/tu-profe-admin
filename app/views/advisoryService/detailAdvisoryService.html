@@ -16,7 +16,8 @@
         <div class="large-2 columns">
             <div class="card">
                 <div class="card-section">
-                    <!--<img src="assets/img/generic/rectangle-1.jpg" imageonload>-->
+                    <img src="images/advisory-service/learning.svg" alt="" ng-show="vm.advisory.type===1">
+                    <img src="images/advisory-service/scientist.svg" alt="" ng-show="vm.advisory.type===2" style="max-width:45px" </div>
                 </div>
                 <div class="card-section">
                     <a href="" class="button expanded"><i class="fa fa-book" aria-hidden="true"></i> Asignar</a>
@@ -112,6 +113,10 @@
                             </div>
                             <div class="card-section">
                                 <div class="row">
+                                    <div class="large-12 columns">
+                                        <strong>Estado: </strong>
+                                        <p>{{vm.advisory.state.label}}</p>
+                                    </div>
                                     <div class="large-12 columns">
                                         <strong>Fecha de Creación: </strong>
                                         <p>{{vm.advisory.createdAtShow}}</p>
