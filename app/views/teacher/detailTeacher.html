@@ -104,11 +104,11 @@
                                     </div>
                                     <div class="large-12 columns">
                                         <strong>Ciudad: </strong>
-                                        <p>{{vm.teacher.city}}</p>
+                                        <p>{{vm.teacher.city.name}}</p>
                                     </div>
                                     <div class="large-12 columns">
                                         <strong>Barrio: </strong>
-                                        <p>{{vm.teacher.neighborhood}}</p>
+                                        <p>{{vm.teacher.geoInfo.neighborhood}}</p>
                                     </div>
                                     <div class="large-12 columns">
                                         <strong>Dirección: </strong>
@@ -139,7 +139,7 @@
                                     </div>
                                     <div class="large-12 columns">
                                         <strong>Fecha de Grado: </strong>
-                                        <p>{{vm.teacher.momentGradeDate}}</p>
+                                        <p>{{vm.teacher.gradeDate | date:'yyyy-MM-dd'}}</p>
                                     </div>
                                 </div>
                             </div>

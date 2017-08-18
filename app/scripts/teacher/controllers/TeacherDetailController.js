@@ -57,8 +57,7 @@
                     });
             }
 
-            function getCalendar(teacher) {
-                teacher.advisoryServices = ['4cc0e524-0e07-4f15-a570-ada26758b18e', 'a8d6692e-60fd-494f-91d8-c63b62555e43', '718b60db-738c-43a8-a5d1-c59442bc9f40', 'd0b25633-ef78-4a0e-952b-3cca78aa5a9e'];
+            function getCalendar(teacher) {                
                 var requests = teacher.advisoryServices.map(advisoryService => { return ServiceAdvisoryServices.getAdvisoryService(advisoryService); });
                 $q.all(requests)
                     .then(advisoryServices => {
@@ -83,7 +82,11 @@
                             return teacher.courses.indexOf(course.id) > -1;
                         });
 
+                        teacher.university = schools.find(school => school.id === vm.originalTeacher.university);
+                        teacher.profession = professions.find(profession => profession.id === vm.originalTeacher.profession);
+
                         vm.teacher = teacher;
+                        console.log(vm.teacher);
                         return Promise.resolve(vm.teacher);
                     });
             }
@@ -96,7 +99,6 @@
                 vm.eventsSchedule = [];
                 vm.eventsCalendar = [];
                 vm.teacher = localStorageService.get('selectedTeacher');
-                vm.teacher.gradeDateMoment = moment(vm.teacher.gradeDate).format('MMMM Do YYYY');
 
                 if (angular.isDefined(vm.teacher) && angular.isDefined(vm.teacher.id)) {
                     getTeacher(vm.teacher.id)
