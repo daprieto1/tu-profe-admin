@@ -85,8 +85,7 @@
                         teacher.university = schools.find(school => school.id === vm.originalTeacher.university);
                         teacher.profession = professions.find(profession => profession.id === vm.originalTeacher.profession);
 
-                        vm.teacher = teacher;
-                        console.log(vm.teacher);
+                        vm.teacher = teacher;                        
                         return Promise.resolve(vm.teacher);
                     });
             }

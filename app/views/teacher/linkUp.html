@@ -108,11 +108,11 @@
                         </div>
                         <div class="large-12 columns">
                             <strong>Ciudad: </strong>
-                            <p>{{vm.teacher.city}}</p>
+                            <p>{{vm.teacher.city.name}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Barrio: </strong>
-                            <p>{{vm.teacher.neighborhood}}</p>
+                            <p>{{vm.teacher.geoInfo.neighborhood}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Dirección: </strong>
@@ -131,15 +131,15 @@
                     <div class="row">
                         <div class="large-12 columns">
                             <strong>Universidad: </strong>
-                            <p>{{vm.teacher.university}}</p>
+                            <p>{{vm.teacher.university.name}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Dirección Universidad: </strong>
-                            <p>{{vm.teacher.universityAddress}}</p>
+                            <p>{{vm.teacher.university.address}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Profesión: </strong>
-                            <p>{{vm.teacher.profession}}</p>
+                            <p>{{vm.teacher.profession.name}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Semestre: </strong>
@@ -147,7 +147,7 @@
                         </div>
                         <div class="large-12 columns">
                             <strong>Fecha de Grado: </strong>
-                            <p>{{vm.teacher.gradeDateMoment}}</p>
+                            <p>{{vm.teacher.gradeDate | date:'yyyy-MM-dd'}}</p>
                         </div>
                     </div>
                 </div>
@@ -178,23 +178,23 @@
                     <div class="row">
                         <div class="large-12 columns">
                             <strong>Banco: </strong>
-                            <p>{{vm.teacher.bank}}</p>
+                            <p>{{vm.teacher.bankAccount.bank}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Número de Cuenta: </strong>
-                            <p>{{vm.teacher.accountNumber}}</p>
+                            <p>{{vm.teacher.bankAccount.number}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Tipo de Cuenta: </strong>
-                            <p>{{vm.teacher.accountType}}</p>
+                            <p>{{vm.teacher.bankAccount.type}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Nombre titular de la cuenta: </strong>
-                            <p>{{vm.teacher.accountHolderName}}</p>
+                            <p>{{vm.teacher.bankAccount.holderName}}</p>
                         </div>
                         <div class="large-12 columns">
                             <strong>Cedula titular de la cuenta: </strong>
-                            <p>{{vm.teacher.accountHolderIdentification}}</p>
+                            <p>{{vm.teacher.bankAccount.holderIdentification}}</p>
                         </div>
                     </div>
                 </div>

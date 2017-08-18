@@ -101,6 +101,9 @@
                             return teacher.courses.indexOf(course.id) > -1;
                         });
 
+                        teacher.university = schools.find(school => school.id === vm.originalTeacher.university);
+                        teacher.profession = professions.find(profession => profession.id === vm.originalTeacher.profession);
+                        console.log(vm.teacher);
                         vm.teacher = teacher;
                         vm.schedule = schedule;
                     });
@@ -110,8 +113,7 @@
                 vm.editProfileData = false;
 
                 vm.ready = false;
-                vm.teacher = localStorageService.get('selectedTeacher');
-                vm.teacher.gradeDateMoment = moment(vm.teacher.gradeDate).format('MMMM Do YYYY');
+                vm.teacher = localStorageService.get('selectedTeacher');                
 
                 if (angular.isDefined(vm.teacher) && angular.isDefined(vm.teacher.id)) {
                     getTeacher(vm.teacher.id);
