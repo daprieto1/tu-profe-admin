@@ -57,6 +57,7 @@
                 vm.basicDataView = true;
                 vm.eventsCalendar = [];
                 vm.advisory = localStorageService.get('selectedAdvisory');
+                console.log(vm.advisory);
 
                 ServiceStudents.getStudent(vm.advisory.studentId)
                     .then(student => vm.student = student);
@@ -67,6 +68,7 @@
                 vm.advisory.sessions = vm.advisory.sessions.map(session => {
                     session.startDateToShow = moment(session.startDate).format('LL');
                     session.numHours = session.duration / 60;
+                    session.realDuration = Math.round((session.realDuration ? session.realDuration : 0)/60000);
                     session.state = SESSION_STATES.find(state => {
                         return state.id === session.state;
                     });

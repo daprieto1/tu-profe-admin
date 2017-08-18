@@ -156,6 +156,7 @@
                             <th>Fecha</th>
                             <th>Hora</th>
                             <th>Duración</th>
+                            <th>Real</th>
                             <th>Estado</th>
                             <th>Profesor</th>
                         </tr>
@@ -166,8 +167,9 @@
                             <td>{{session.startDateToShow}}</td>
                             <td>{{session.startTime}}</td>
                             <td>{{session.numHours}} Horas</td>
+                            <td>{{session.realDuration}} Minutos</td>
                             <td><span class="label">{{session.state.label}}</span></td>
-                            <td>{{session.teacher}}</td>
+                            <td>{{session.teacher.name}}</td>
                         </tr>
                     </tbody>
                 </table>
