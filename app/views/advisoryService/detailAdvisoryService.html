@@ -20,9 +20,9 @@
                     <img src="images/advisory-service/scientist.svg" alt="" ng-show="vm.advisory.type===2" style="max-width:45px" </div>
                 </div>
                 <div class="card-section">
-                    <a href="" class="button expanded"><i class="fa fa-book" aria-hidden="true"></i> Asignar</a>
-                    <a href="" class="button expanded" ng-click="vm.showSchedule = true"><i class="fa fa-calendar" aria-hidden="true"></i> Editar Sesión</a>
-                    <a href="" class="button expanded alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Cancelar</a>
+                    <a class="button expanded" ng-click="vm.openAssingteacherModal()" ng-if="vm.advisory.state.id === 3"><i class="fa fa-book" aria-hidden="true"></i> Asignar</a>
+                    <a class="button expanded" ng-click="vm.showSchedule = true"><i class="fa fa-calendar" aria-hidden="true"></i> Editar Sesión</a>
+                    <a class="button expanded alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Cancelar</a>
                 </div>
             </div>
         </div>

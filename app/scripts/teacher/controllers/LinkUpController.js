@@ -78,7 +78,7 @@
                     }
                 };
                 var modalInstance = $modal.open(params);
-                modalInstance.result.then(function (selectedItem) {
+                modalInstance.result.then(function () {
                     vm.teacher.state = TEACHER_STATES.interview.id;
                 }, function () {
                     alertify.error('La entrevista no fue agendada');

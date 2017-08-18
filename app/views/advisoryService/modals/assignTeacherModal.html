@@ -1,0 +1,12 @@
+<div id="assign-teacher-modal">
+    <form name="assignTeacher" novalidate>        
+        <select name="teacher" id="teacher" ng-options="teacher as (teacher.name + ' ' + teacher.lastName + ' - ' + teacher.id) for teacher in teachers track by teacher.id"
+        ng-model="teacher" required>            
+        </select>
+        <div class="row">
+            <div class="large-12 columns">
+                <button class="button" ng-click="takeService(teacher)" ng-disabled="assignTeacher.$invalid">Assignar</button>
+            </div>
+        </div>
+    </form>
+</div>

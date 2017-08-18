@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('advisoryServiceModule')
-        .controller('AdvisoryServiceDetailController', function ($timeout, localStorageService, ServiceStudents, ServiceAdvisoryServices, SESSION_STATES) {
+        .controller('AdvisoryServiceDetailController', function ($modal, $timeout, localStorageService, ServiceStudents, ServiceAdvisoryServices, SESSION_STATES) {
             var vm = this;
 
             vm.renderCalendar = () => {
@@ -18,6 +18,39 @@
                         events: vm.eventsCalendar
                     });
                 }, 500);
+            };
+
+            vm.openAssingteacherModal = () => {
+                var params = {
+                    templateUrl: 'views/advisoryService/modals/assignTeacherModal.html',
+                    resolve: {
+                        advisoryServiceId: () => vm.advisory.id
+                    },
+                    controller: ($scope, $modalInstance, advisoryServiceId, ServiceTeachers, ServiceAdvisoryServices) => {
+                        ServiceTeachers.getAll()
+                            .then(teachers => {
+                                $scope.teachers = teachers;
+                            });
+
+                        $scope.takeService = (teacher) => {
+                            ServiceAdvisoryServices.assign(advisoryServiceId, teacher.id)
+                                .then(response => {                                    
+                                    alertify.success('Su solicitud de asignación ha sido enviada. Se le notificará al profesor la desición.');
+                                    $modalInstance.close();
+                                })
+                                .catch(err => {
+                                    alertify.error('La solucitud de asignación no ha podido ser enviada: ' + error.data.message);
+                                });
+                        };
+                    }
+                };
+
+                var modalInstance = $modal.open(params);
+                modalInstance.result.then(() => {
+                    
+                }, () => {
+                    alertify.error('Ningún profesor fue seleccionado');
+                });
             };
 
             function initCtrl() {
