@@ -68,18 +68,30 @@
             envServiceProvider.config({
                 domains: {
                     local: ['localhost'],
-                    c9: ['tu-profe-admin-diegoprieto.c9users.io' ],
-                    heroku:['tu-profe-admin.herokuapp.com']
+                    c9: ['tu-profe-front-diegoprieto.c9users.io'],
+                    heroku: ['tu-profe-front.herokuapp.com'],
+                    AWS_DEV: ['ec2-52-10-106-252.us-west-2.compute.amazonaws.com']
                 },
                 vars: {
                     local: {
-                        apiUrl: 'http://localhost:8080/api'
+                        apiUrl: 'http://localhost:8080/api',
+                        S3TuProfe: 'https://s3-us-west-2.amazonaws.com/tu-profe',
+                        CloudFrontTuProfe: 'https://s3-us-west-2.amazonaws.com/tu-profe'
                     },
                     c9: {
-                        apiUrl: 'https://tu-profe-api-node-diegoprieto.c9users.io:8080/api'
+                        apiUrl: 'https://tu-profe-api-node-diegoprieto.c9users.io:8080/api',
+                        S3TuProfe: 'https://s3-us-west-2.amazonaws.com/tu-profe',
+                        CloudFrontTuProfe: 'https://s3-us-west-2.amazonaws.com/tu-profe'
                     },
                     heroku: {
-                        apiUrl: 'https://tu-profe-api-node.herokuapp.com/api'
+                        apiUrl: 'https://tu-profe-api-node.herokuapp.com/api',
+                        S3TuProfe: 'https://s3-us-west-2.amazonaws.com/tu-profe',
+                        CloudFrontTuProfe: 'https://s3-us-west-2.amazonaws.com/tu-profe'
+                    },
+                    AWS_DEV: {
+                        apiUrl: 'http://52.10.106.252:8080/api',
+                        S3TuProfe: 'https://s3-us-west-2.amazonaws.com/tu-profe',
+                        CloudFrontTuProfe: 'https://s3-us-west-2.amazonaws.com/tu-profe'
                     }
                 }
             });
