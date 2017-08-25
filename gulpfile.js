@@ -45,17 +45,17 @@ function lint(files, options) {
 
 gulp.task('lint', () => {
     return lint('app/scripts/**/*.js', {
-            fix: true
-        })
+        fix: true
+    })
         .pipe(gulp.dest('app/scripts'));
 });
 gulp.task('lint:test', () => {
     return lint('test/spec/**/*.js', {
-            fix: true,
-            env: {
-                mocha: true
-            }
-        })
+        fix: true,
+        env: {
+            mocha: true
+        }
+    })
         .pipe(gulp.dest('test/spec/**/*.js'));
 });
 
@@ -80,6 +80,11 @@ gulp.task('images', () => {
         .pipe(gulp.dest('dist/images'));
 });
 
+gulp.task('bower', function () {
+    return $.bower('bower_components')
+        .pipe(gulp.dest('dist/bower_components'))
+});
+
 gulp.task('fonts', () => {
     return gulp.src('bower_components/font-awesome/fonts/**.*')
         .pipe(gulp.dest('app/fonts'))
@@ -92,8 +97,8 @@ gulp.task('extras', () => {
         'app/*.*',
         '!app/*.html'
     ], {
-        dot: true
-    }).pipe(gulp.dest('dist'));
+            dot: true
+        }).pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
@@ -166,7 +171,7 @@ gulp.task('wiredep', () => {
         .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'bower', 'fonts', 'extras'], () => {
     return gulp.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
 });
 
@@ -174,7 +179,7 @@ gulp.task('default', ['clean'], () => {
     gulp.start('build');
 });
 
-gulp.task('sonar', function() {
+gulp.task('sonar', function () {
     var options = {
         sonar: {
             host: {
