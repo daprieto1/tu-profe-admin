@@ -1,0 +1,32 @@
+<div id="students" ng-controller="StudentsController as vm">
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="breadcrumbs">
+                <li>
+                    <span class="show-for-sr">Current: </span> Estudiantes
+                </li>
+            </ul>
+            <hr>
+            <h1>Estudiantes</h1>
+            <a class="button" href="#!/students/create">
+                Crear Estudiante
+            </a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>                    
+                    <th>Celular</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="student in vm.students">
+                    <td>{{student.id}}</td>
+                    <td>{{student.name + " " + student.lastName}}</td>
+                    <td>{{student.cellPhone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

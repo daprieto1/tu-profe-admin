@@ -1,0 +1,65 @@
+<div id="create-student" ng-controller="StudentCreateController as vm">
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="#!/students">Estudiantes</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> Crear estudiante
+            </li>
+        </ul>
+        <h1>Crear Estudiante</h1>
+    </div>
+    <div class="row">
+        <div class="large-6 columns">
+            <form name="createStudent">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Nombre
+                            <input id="name" name="name" type="text" ng-model="vm.student.name" required>
+                            <p class="error" ng-if="createStudent.name.$invalid && createStudent.name.$dirty">
+                                Por favor indique el nombre del estudiante.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Correo electrónico
+                            <input id="email" name="email" type="email" ng-model="vm.student.email" required>
+                            <p class="error" ng-if="createStudent.email.$invalid && createStudent.email.$dirty">
+                                Por favor indique el correo electrónico del estudiante.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Contraseña
+                            <input id="password" name="password" type="password" minLength="8" ng-model="vm.student.password" required>
+                            <p class="error" ng-if="createStudent.password.$invalid && createStudent.password.$dirty">
+                                Por favor indique la contraseña del estudiante.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Celular
+                            <input id="cellPhone" name="cellPhone" type="number" ng-pattern="/^[0-9]{10,12}$/" ng-model="vm.student.cellPhone" required>
+                            <p class="error" ng-if="createStudent.cellPhone.$invalid && createStudent.cellPhone.$dirty">
+                                Por favor indique el teléfono celular del estudiante.
+                            </p>
+                        </label>
+                    </div>
+                </div>
+                
+
+                <button class="button" ng-disabled="createStudent.$invalid" ng-click="vm.create()">
+                    Crear
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

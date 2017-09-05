@@ -12,15 +12,19 @@
             })
 
             return {
-                getStudent: function (id) {
+                getAll: () => {
+                    return Student.query().$promise;
+                },
+
+                getStudent: (id) => {
                     return Student.get({ id: id }).$promise;
                 },
 
-                update: function (student) {
+                update: (student) => {
                     return Student.update({ id: student.id }, student).$promise;
                 },
 
-                uploadPhoto: function (file, studentId) {
+                uploadPhoto: (file, studentId) => {
                     var fd = new FormData();
                     fd.append('file', file);
                     fd.append('studentId', studentId)

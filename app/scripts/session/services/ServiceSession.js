@@ -18,11 +18,20 @@
             });
 
             return {
-                loginAdminUser: function (username, password) {
-                    return Session.loginAdminUser({ username: username, password: password }).$promise;
+                signUpTeacher: function (teacher) {
+                    return Session.signUpTeacher({}, teacher).$promise;
                 },
+
+                signUpStudent: function (student) {
+                    return Session.signUpStudent({}, student).$promise;
+                },
+
                 signUpAdminUser: function (adminUser) {
                     return Session.signUpAdminUser(adminUser).$promise;
+                },
+
+                loginAdminUser: function (username, password) {
+                    return Session.loginAdminUser({ username: username, password: password }).$promise;
                 }
             };
         });
